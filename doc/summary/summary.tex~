@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{capt-of}%%To get the caption
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage[gen]{eurosym}
+\usepackage{amssymb}
+\usepackage{rotating}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{cleveref}
+%\usepackage{ragged2e} % For text alignment
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the ``Abstract'' text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage[hmarginratio=1:1,top=22mm,columnsep=16pt]{geometry} % Document margins
+%\usepackage{multicol} % Used for the two-column layout of the document
+\newtheorem{prop}{Proposition}
+\newtheorem{proof}{Proof}
+
+
+
+%\usepackage{bm}
+
+
+\title{Summary of Preethi paper}
+\author{Kees Kroep 4246373}
+
+
+\begin{document}
+%  \twocolumn[{%
+% \begin{@twocolumnfalse}
+  \maketitle
+  %   \end{@twocolumnfalse}
+  % }]
+
+  \textbf{Quantum Efficiency}\\
+  Ratio of the number of carriers collected by the solar cell to the number of photons of a given energy incident on the solar cell.
+\\
+
+\textbf{Impact Ionization}\\
+A small ionization event in a high electric field can cause a chain reaction causing a much larger discharge.\\
+
+\textbf{CCD - Charge Coupled Device}\\
+A charge coupled device is a sensor that can detect light intensity. The main idea is to not use wires to transfer stored charge to the memory, but instead shift the charger to one side where the readout circuit is located.\\
+
+  \textbf{EMCCD - Electron Multiplying Charge Coupled Device}\\
+The EMCCD is a CCD with an electron multiplying register at the end of the normal serial register. This amlifies weak signals before readout noise is added, which then becomes neglectible. The EM makes use of Impact Ionization to blow up the weak signal. \\
+
+\textbf{Molecular beam epitaxy (MBE)}\\
+Molecular beam epitaxy is a method to grow a material layer by layer. This can be used to deposit extremely thin single crystal layers. The technique is mainly used to manufactory semiconductor devices.\\
+
+\textbf{Superlattice}\\
+periodic structure of layers of two or more materials. \\
+
+
+	  
+
+
+  \end{document}
+

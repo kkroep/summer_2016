@@ -1,0 +1,44 @@
+%        File: newfile.tex
+%     Created: wo jul 20 09:00  2016 P
+% Last Change: wo jul 20 09:00  2016 P
+%
+\documentclass[a4paper]{article}
+\usepackage[]{amsmath}
+\begin{document}
+test sentence. Another test sentence
+
+\begin{eqnarray}
+	\label{eqn:euler}
+	e^{j\pi}&=& 0
+\end{eqnarray}
+
+\newpage
+
+\begin{eqnarray}
+	\label{eqn:simple}
+	1 + 1 &=& 2
+\end{eqnarray}
+
+
+This is a reference to (\ref{eqn:euler})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
