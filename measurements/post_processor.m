@@ -1,20 +1,31 @@
+% arg1 is csv location
+% arg2 is eps destination
+
+
+arg_list = argv ();
+for i = 1:nargin
+  printf (" %s\n", arg_list{i});
+endfor
+
 
 graphics_toolkit gnuplot;
-a = csvread('tek0005ALL.csv');
+a = csvread(arg_list{1});
 
 a(1:21,:)=[];
+a(end,:)=[];
+a(:,1) = a(:,1)-a(1,1);
 
 hold on;
-plot(1:size(a,1), a(:,4));
-plot(1:size(a,1), a(:,3), 'g');
-plot(1:size(a,1), a(:,2), 'r');
+plot(a(:,1), a(:,4));
+plot(a(:,1), a(:,3), 'g');
+plot(a(:,1), a(:,2), 'r');
 
 
 hold off;
 
-xlabel('time (ms)');
+xlabel('time (s)');
 ylabel('voltage (V)')
-legend('reset', 'out8', 'out4');
+legend('reset', 'grounded', 'floating');
 
-print -djpg integrator.jpg;
-print -deps -color integrator.eps;
+print('-deps', '-color', fullfile(pwd, arg_list{2}))
+

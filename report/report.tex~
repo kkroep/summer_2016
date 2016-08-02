@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{todonotes}
+\usepackage{pgfplots}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{ragged2e} % For text alignment
+
+
+\newenvironment{custom_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+\usepackage[hmarginratio=1:1,top=22mm,columnsep=16pt]{geometry} % Document margins
+%\usepackage{multicol} % Used for the two-column layout of the document
+
+
+%\usepackage{bm}
+
+
+\title{Preethis ROIC analysis}
+\author{Kees Kroep 4246373}
+
+
+\begin{document}
+%  \twocolumn[{%
+% \begin{@twocolumnfalse}
+  \maketitle
+%   \end{@twocolumnfalse}
+% }]
+
+\section{setup}\label{sec:setup}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{fig/setup_overview.eps}
+	\caption{setup overview}
+	\label{fig:setup_overview}
+\end{figure}
+
+
+
+\section{grounded versus floating}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{fig/grounded_floating.eps}
+	\caption{floating versus grounded}
+	\label{fig:floating_vs_grounded}
+\end{figure}
+
+
+
+
+\end{document}
