@@ -1,6 +1,6 @@
 
 graphics_toolkit gnuplot;
-a = csvread('tek0004ALL.csv');
+a = csvread('tek0005ALL.csv');
 
 a(1:21,:)=[];
 
