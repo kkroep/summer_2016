@@ -1,0 +1,72 @@
+\begin{figure}[H]
+\centering
+\usetikzlibrary{shapes,snakes}
+\tikzstyle{dot} = [draw,shape=circle,fill=black, scale =.2]
+\tikzstyle{l_arrow} = [draw,fill = black, regular polygon,regular polygon sides=3, rotate=-90, anchor=south, scale=.5] 
+\tikzstyle{l_text} = [anchor=south west]
+\tikzstyle{r_arrow} = [draw,fill = black, regular polygon,regular polygon sides=3, rotate=90, anchor=south, scale=.5] 
+\tikzstyle{r_text} = [anchor=south east]
+\begin{tikzpicture}[scale=1.5, every node/.style={scale=1}]
+
+
+\node[l_text] at (-3,1) {VDD 3.3 (1)};
+\node[l_text] at (-3,0) {IN[8] (15)};
+\node[l_text] at (-3,-1) {VSUB (16)};
+\node[l_text] at (-3,-2) {VDD\_HV (17)};
+\node[l_text] at (-3,-3) {GND\_HV (18)};
+
+\node[l_arrow] at (-3,1) {};
+\node[l_arrow] at (-3,0) {};
+\node[l_arrow] at (-3,-1) {};
+\node[l_arrow] at (-3,-2) {};
+\node[l_arrow] at (-3,-3) {};
+
+\node[r_text] at (0,1) {(25) gnd};
+\node[r_text] at (0,0) {(26) VDD5};
+\node[r_text] at (0,-1) {(27) Vg};
+\node[r_text] at (0,-2) {(28) Rst[3]};
+\node[r_text] at (0,-3) {(29) Rst[1]};
+\node[r_text] at (0,-4) {(30) Rst[2]};
+\node[r_text] at (0,-5) {(31) Res};
+\node[r_text] at (0,-6) {(32) VB0[8]};
+\node[r_text] at (0,-7) {(33) out[8]};
+\node[r_text] at (0,-8) {(48) gnd};
+
+
+\node[r_arrow] at (0,1) {};
+\node[r_arrow] at (0,0) {};
+\node[r_arrow] at (0,-1) {};
+\node[r_arrow] at (0,-2) {};
+\node[r_arrow] at (0,-3) {};
+\node[r_arrow] at (0,-4) {};
+\node[r_arrow] at (0,-5) {};
+\node[r_arrow] at (0,-6) {};
+\node[r_arrow] at (0,-7) {};
+\node[r_arrow] at (0,-8) {};
+\draw  (-3,2) rectangle (0,-8);
+
+
+
+
+\draw (-3.5,-1) node[ground]{} to (-3,-1);
+\draw (-3.5,-3) node[ground]{} to (-3,-3);
+\draw (0.5,1) node[ground]{} to (0,1);
+\draw (0.5,-8) node[ground]{} to (0,-8);
+\draw (0.5,-3) node[ground]{} to (0,-3);
+\draw (0.5,-4) node[ground]{} to (0,-4);
+
+\draw (0.5,0.25) node[anchor=south]{$5\,V$} (0.5,0.25) node[tground]{} to (0.5,0)to (0,0); % VDD5
+\draw (0.5,-0.75) node[anchor=south]{$4.5\,V$} (0.5,-0.75) node[tground]{} to (0.5,-1)to (0,-1); % Vg
+\draw (-3.5,1.25) node[anchor=south]{$3.3\,V$} (-3.5,1.25) node[tground]{} to (-3.5,1)to (-3,1); % VDD3.3
+\draw (-3.5,-1.75) node[anchor=south]{$5\,V$} (-3.5,-1.75) node[tground]{} to (-3.5,-2)to (-3,-2); %VDD_HV
+\draw (-4.5,0.25) node[anchor=south]{$set$} (-4.5,0.25) node[tground]{} to (-4.5,0)to (-4.5,0); % IN[8]
+\draw (0.5,-1.75) node[anchor=south]{$reset$} (0.5,-1.75) node[tground]{} to (0.5,-2)to (0,-2); % Rst[3]
+\draw  (0,-5) to[R=$50\,k\Omega$](1.5,-5) to (1.5,-4.75) node[tground]{} (1.5,-4.75) node[anchor=south]{$5\,V$}; %res
+
+
+\draw (-4.5,0) to [R=$20\,M\Omega$](-3,0);
+
+\end{tikzpicture}
+\caption{Schematic of breadbord}
+\label{tkz:breadbord}
+\end{figure}
