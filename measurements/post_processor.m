@@ -25,7 +25,7 @@ hold off;
 
 xlabel('time (s)');
 ylabel('voltage (V)')
-legend('reset', 'grounded', 'floating');
-
+legend('reset', 'VB', 'output', 'location', 'northeastoutside');
+title(arg_list{3});
 print('-deps', '-color', fullfile(pwd, arg_list{2}))
 

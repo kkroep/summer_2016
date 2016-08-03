@@ -13,7 +13,7 @@ a = csvread(arg_list{1});
 
 a(1:21,:)=[];
 a(end,:)=[];
-a(1,:) = a(1,:)-a(1,1);
+a(:,1) = a(:,1)-a(1,1);
 
 hold on;
 plot(a(:,1), a(:,4));
@@ -25,7 +25,7 @@ hold off;
 
 xlabel('time (s)');
 ylabel('voltage (V)')
-legend('reset', 'grounded', 'floating');
-
+legend('reset', 'grounded', 'floating', 'location', 'northeastoutside');
+title(arg_list{3});
 print('-deps', '-color', fullfile(pwd, arg_list{2}))
 
