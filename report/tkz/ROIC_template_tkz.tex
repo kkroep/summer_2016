@@ -3,15 +3,15 @@
 
 \usetikzlibrary{shapes,snakes}
 
-\newcommand*{\Vg}{Vg}
-\newcommand*{\Rst}{Rst[3]}
-\newcommand*{\Res}{Res}
-\newcommand*{\VDD}{VDD3.3}
-\newcommand*{\IN}{IN[i]}
-\newcommand*{\OUT}{OUT[i]}
-\newcommand*{\VBO}{VBO[i]}
-\newcommand*{\gnd}{gnd}
-\newcommand*{\C}{$\color{red} C_{pf}$}
+\newcommand*{\Vg}{Vg $\color{red}$}
+\newcommand*{\Rst}{Rst[3] $\color{red}$} 
+\newcommand*{\Res}{Res $\color{red}$}
+\newcommand*{\VDD}{VDD3.3 $\color{red}$}
+\newcommand*{\IN}{IN[i] $\color{red}$}
+\newcommand*{\OUT}{OUT[i] $\color{red}$}
+\newcommand*{\VBO}{VBO[i] $\color{red}$}
+\newcommand*{\gnd}{gnd $\color{red}$}
+\newcommand*{\C}{$C_{pf} \color{red}$}
 
 
 
@@ -49,17 +49,17 @@
 
 
 
-\draw (-1,2.5) node[anchor=east, color=red]{IN[i]} to (Vg.E);
-\draw (Vg.G) |- (0,4.5) node[anchor=south, color=red]{\Vg};
+\draw (-1,2.5) node[anchor=east]{IN[i]} to (Vg.E);
+\draw (Vg.G) |- (0,4.5) node[anchor=south]{\Vg};
 \draw (Vg.B) |- (1,2.5) node[dot]{} |- (CM_H1.G); %top
 \draw (1,2.5) |- (1,0.5)  to [C=\C](4,0.5) -| (CM_H1.C);
 \draw (1.5,0.5) node[dot]{} -| (1.5,2) |- (Reset.B);
-\draw (Reset.G) to (2.5,4.5) node[anchor=south, color=red]{\Rst};
+\draw (Reset.G) to (2.5,4.5) node[anchor=south]{\Rst};
 \draw (Reset.C) -| (3.5,0.5) node[dot]{};
 \draw (5,0.5) node[dot]{} to (CM_L1.C);
-\draw (CM_L1.G) to (4,4.5) node[anchor=south, color=red]{\Res}; 
-\draw (CM_L1.E) to (CM_L2.E) to (7,-2.5) node[anchor=north, color=red]{\gnd};
-\draw (CM_H1.B) |- (CM_H2.C) to (7,4.5) node[anchor=south, color=red]{\VDD};
+\draw (CM_L1.G) to (4,4.5) node[anchor=south]{\Res}; 
+\draw (CM_L1.E) to (CM_L2.E) to (7,-2.5) node[anchor=north]{\gnd};
+\draw (CM_H1.B) |- (CM_H2.C) to (7,4.5) node[anchor=south]{\VDD};
 \draw (CM_L2.G) |- (4,0) node[dot]{};
 \draw (5,0.5) -| (CM_H2.G);
 \draw (CM_L1.B) to (CM_L1.E);
@@ -70,8 +70,8 @@
 \draw (CM_H3.C) |- (CM_H2.C) node[dot]{};
 \draw (CM_L3.E) |- (CM_L2.E) node[dot]{};
 \draw (CM_L3.G) |- (6,0) node[dot]{};
-\draw (7,1.5)node[dot]{} to (10,1.5) node[anchor=west, color=red]{\OUT};
-\draw (9,1)node[dot]{} to (10,1) node[anchor=west, color=red]{\VBO};
+\draw (7,1.5)node[dot]{} to (10,1.5) node[anchor=west]{\OUT};
+\draw (9,1)node[dot]{} to (10,1) node[anchor=west]{\VBO};
 
 
 
