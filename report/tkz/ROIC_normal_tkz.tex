@@ -1,0 +1,83 @@
+\begin{figure}[H]
+\centering
+
+\usetikzlibrary{shapes,snakes}
+
+\newcommand*{\Vg}{Vg\\ $\color{red}2.5\,V$}
+\newcommand*{\Rst}{\textbf{Rst[3]}\\ $\color{red}0\,V$} 
+\newcommand*{\Res}{Res\\ $\color{red}0.86\,V$}
+\newcommand*{\VDD}{VDD3.3\\ $\color{red}3.3\,V$}
+\newcommand*{\IN}{\color{green}\textbf{IN[8]}}
+\newcommand*{\OUT}{\color{red}\textbf{OUT[8]} $\color{red}1.4\,V$}
+\newcommand*{\VBO}{\color{blue}\textbf{VBO[8]} $\color{red}1.4\,V$}
+\newcommand*{\gnd}{gnd\\ $\color{red}0\,V$}
+\newcommand*{\C}{$\color{red}450\,fF$}
+
+
+
+
+\tikzstyle{dot} = [draw,shape=circle,fill=black, scale =.3]
+\tikzstyle{l_arrow} = [draw,fill = black, regular polygon,regular polygon sides=3, rotate=-90, anchor=south, scale=.5] 
+\tikzstyle{l_text} = [anchor=south west]
+\tikzstyle{r_arrow} = [draw,fill = black, regular polygon,regular polygon sides=3, rotate=90, anchor=south, scale=.5] 
+\tikzstyle{r_text} = [anchor=south east]
+\begin{tikzpicture}[scale=1, every node/.style={scale=1}]
+
+
+
+
+\draw[dashed]  (-0.5,5.5) rectangle (0.5,-2);
+\node[align=center, anchor=south] at (0,5.5) {voltage\\limiter};
+
+\draw[dashed]  (1.25,5.5) rectangle (5.25,-2);
+\node[align=center, anchor=south] at (3.25,5.5) {integrator};
+
+\draw[dashed]  (5.75,5.5) rectangle (9.25,-2);
+\node[align=center, anchor=south] at (7.5,5.5) {current mirrors};
+
+%\draw (0,0) to node[nfet]{};
+
+%\draw (0,0) to (mos1.s);
+\node(Vg)[nfet, rotate=-90] at (0,2.5) {};
+\node[nfet, rotate=-90] (Reset) at (2.5,2) {};
+\node[pfet] (CM_H1) at (5,3) {};
+\node[nfet] (CM_L1) at (5,-1) {};
+\node[nfet] (CM_H2) at (7,3) {};
+\node[nfet] (CM_L2) at (7,-1) {};
+\node[nfet] (CM_H3) at (9,3) {};
+\node[nfet] (CM_L3) at (9,-1) {};
+
+
+
+\draw (-1,2.5) node[anchor=east, align=center]{\IN} to (Vg.S);
+\draw (Vg.G) |- (0,4.5) node[anchor=south, align=center]{\Vg};
+\draw (Vg.B) |- (1,2.5) node[dot]{} |- (CM_H1.G); %top
+\draw (1,2.5) |- (1,0.5)  to [C=\C](4,0.5) -| (CM_H1.D);
+\draw (1.5,0.5) node[dot]{} -| (1.5,2) |- (Reset.B);
+\draw (Reset.G) to (2.5,4.5) node[anchor=south, align=center]{\Rst};
+\draw (Reset.D) -| (3.5,0.5) node[dot]{};
+\draw (5,0.5) node[dot]{} to (CM_L1.D);
+\draw (CM_L1.G) to (4,4.5) node[anchor=south, align=center]{\Res}; 
+\draw (CM_L1.S) to (CM_L2.S) to (7,-2.5) node[anchor=north, align=center]{\gnd};
+\draw (CM_H1.B) |- (CM_H2.D) to (7,4.5) node[anchor=south, align=center]{\VDD};
+\draw (CM_L2.G) |- (4,0) node[dot]{};
+\draw (5,0.5) -| (CM_H2.G);
+\draw (CM_L1.B) to (CM_L1.S);
+\draw (CM_L2.B) to (CM_L2.S);
+\draw (CM_H2.B) to (CM_L2.D);
+\draw (CM_H3.B) to (CM_L3.D);
+\draw (1,3)node[dot]{} |- (8,4) |- (CM_H3.G);
+\draw (CM_H3.D) |- (CM_H2.D) node[dot]{};
+\draw (CM_L3.S) |- (CM_L2.S) node[dot]{};
+\draw (CM_L3.G) |- (6,0) node[dot]{};
+\draw (7,1.5)node[dot]{} to (10,1.5) node[anchor=west, align=center]{\OUT};
+\draw (9,1)node[dot]{} to (10,1) node[anchor=west, align=center]{\VBO};
+
+
+
+
+\end{tikzpicture}
+
+\caption{Schematic of ROIC channel template}
+\label{tkz:schematic_ROIC_template}
+\end{figure}

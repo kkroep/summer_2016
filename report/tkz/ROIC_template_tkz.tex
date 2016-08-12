@@ -49,26 +49,26 @@
 
 
 
-\draw (-1,2.5) node[anchor=east]{IN[i]} to (Vg.E);
+\draw (-1,2.5) node[anchor=east]{IN[i]} to (Vg.S);
 \draw (Vg.G) |- (0,4.5) node[anchor=south]{\Vg};
 \draw (Vg.B) |- (1,2.5) node[dot]{} |- (CM_H1.G); %top
 \draw (1,2.5) |- (1,0.5)  to [C=\C](4,0.5) -| (CM_H1.C);
 \draw (1.5,0.5) node[dot]{} -| (1.5,2) |- (Reset.B);
 \draw (Reset.G) to (2.5,4.5) node[anchor=south]{\Rst};
-\draw (Reset.C) -| (3.5,0.5) node[dot]{};
+\draw (Reset.D) -| (3.5,0.5) node[dot]{};
 \draw (5,0.5) node[dot]{} to (CM_L1.C);
 \draw (CM_L1.G) to (4,4.5) node[anchor=south]{\Res}; 
-\draw (CM_L1.E) to (CM_L2.E) to (7,-2.5) node[anchor=north]{\gnd};
-\draw (CM_H1.B) |- (CM_H2.C) to (7,4.5) node[anchor=south]{\VDD};
+\draw (CM_L1.S) to (CM_L2.S) to (7,-2.5) node[anchor=north]{\gnd};
+\draw (CM_H1.B) |- (CM_H2.D) to (7,4.5) node[anchor=south]{\VDD};
 \draw (CM_L2.G) |- (4,0) node[dot]{};
 \draw (5,0.5) -| (CM_H2.G);
-\draw (CM_L1.B) to (CM_L1.E);
-\draw (CM_L2.B) to (CM_L2.E);
-\draw (CM_H2.B) to (CM_L2.C);
-\draw (CM_H3.B) to (CM_L3.C);
+\draw (CM_L1.B) to (CM_L1.S);
+\draw (CM_L2.B) to (CM_L2.S);
+\draw (CM_H2.B) to (CM_L2.D);
+\draw (CM_H3.B) to (CM_L3.D);
 \draw (1,3)node[dot]{} |- (8,4) |- (CM_H3.G);
-\draw (CM_H3.C) |- (CM_H2.C) node[dot]{};
-\draw (CM_L3.E) |- (CM_L2.E) node[dot]{};
+\draw (CM_H3.D) |- (CM_H2.D) node[dot]{};
+\draw (CM_L3.S) |- (CM_L2.S) node[dot]{};
 \draw (CM_L3.G) |- (6,0) node[dot]{};
 \draw (7,1.5)node[dot]{} to (10,1.5) node[anchor=west]{\OUT};
 \draw (9,1)node[dot]{} to (10,1) node[anchor=west]{\VBO};

@@ -1,0 +1,79 @@
+% arg1 is csv location
+% arg2 is eps destination
+
+
+arg_list = argv ();
+for i = 1:nargin
+  printf (" %s\n", arg_list{i});
+endfor
+
+file = "tek00";
+file2 = "ALL.csv";
+
+
+colorspec = {[0.4 0 0.8]; [0.4 0.8 0]; [0.4 0.7 0.7]; ...
+  [0 0.4 0.8]; [0.8 0.4 0]; [0.7 0.4 0.7]; ...
+  [0.8 0 0.4]; [0 0.8 0.4]; [0.7 0.7 0.4]; ...
+  [0 0 0.7]; [0 0.7 0]; [0.7 0 0]};
+
+
+
+graphics_toolkit gnuplot;
+
+hold on;
+
+for j=0:19
+	if(j<10)
+		adres = [file, "0",int2str(j), file2];
+	else
+		adres = [file, int2str(j), file2];
+	end	
+	a = csvread(adres);
+
+	smooth=13;
+	b=a(1:end-smooth+1,:);
+	for i=2:smooth
+		b = b+a(i:end-smooth+i,:);
+	end
+	a=b/smooth;
+
+	a(1:21,:)=[];
+	a(end,:)=[];
+	a(:,1) = a(:,1)-a(1,1);
+
+	if j==0
+		plot(a(:,1), a(:,4), 'LineWidth', 4, 'k');
+	end
+	%plot(a(:,1), a(:,3), 'g', 'LineWidth', 4);
+	plot(a(:,1), a(:,2), 'r', 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
+end
+
+hold off;
+
+xlabel('time (s)');
+ylabel('voltage (V)')
+legend('reset',...
+'V_{in}=2.4V',...
+'V_{in}=2.5V',...
+'V_{in}=2.6V',...
+'V_{in}=2.7V',...
+'V_{in}=2.8V',...
+'V_{in}=2.9V',...
+'V_{in}=3.0V',...
+'V_{in}=3.2V',...
+'V_{in}=3.4V',...
+'V_{in}=3.6V',...
+'V_{in}=3.8V',...
+'V_{in}=4.0V',...
+'V_{in}=4.5V',...
+'V_{in}=5.0V',...
+'V_{in}=5.5V',...
+'V_{in}=6.0V',...
+'V_{in}=6.5V',...
+'V_{in}=7.0V',...
+'V_{in}=7.5V',...
+'V_{in}=8.0V',...
+'location', 'northeastoutside');
+title(arg_list{3});
+print('-deps', '-color', fullfile(pwd, arg_list{2}))
+
