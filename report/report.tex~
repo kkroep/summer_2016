@@ -41,20 +41,19 @@
 % }]
 
 \section{setup}\label{sec:setup}
-\pgfversion
 \input{tkz/breadboard_tkz}
 \input{tkz/schematic_ROIC_tkz}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{fig/setup_overview.eps}
+	\includegraphics[width=0.6\linewidth]{fig/P1010158.JPG}
 	\caption{setup overview}
 	\label{fig:setup_overview}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{fig/close-up.eps}
+	\includegraphics[width=0.6\linewidth]{fig/P1010159.JPG}
 	\caption{close-up}
 	\label{fig:close-up}
 \end{figure}
@@ -62,13 +61,15 @@
 \clearpage
 
 \section{Reset mode}
-This test addresses the behavior of the circuit in reset mode. 
+This test addresses the behavior of the circuit in reset mode. \Cref{tkz:schematic_ROIC_reset} shows the measured values during reset mode. Note that the input voltage is $2.4\,V$, which is important when calculating the input current. 
 
 \input{tkz/ROIC_reset-on_tkz}
 
 
 \section{Normal operation mode}
 This test aims to observe the integration process. It was quite a tedious process to get this to work. It tunred out that the amount of current supplied was sereral orders of magnitude off. To limit theinput channel the $Vg$ was reduced to $2.5\,V$. The result of this is a nice integration that can be observed for several specific input voltages. Note that the plotted IN, is the actual voltage at the input of the ROIC, and the listed IN at the title of the plot is the voltage supply connected to a $20\,M\Omega$ resistor to the input of the ROIC.
+
+\input{tkz/ROIC_normal_tkz}
 
 \begin{figure}[h]
 	\centering

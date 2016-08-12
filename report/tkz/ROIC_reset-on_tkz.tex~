@@ -49,7 +49,7 @@
 
 
 
-\draw (-1,2.5) node[anchor=east]{IN[i]} to (Vg.S);
+\draw (-1,2.5) node[anchor=east, align=center]{\IN} to (Vg.S);
 \draw (Vg.G) |- (0,4.5) node[anchor=south, align=center]{\Vg};
 \draw (Vg.B) |- (1,2.5) node[dot]{} |- (CM_H1.G); %top
 \draw (1,2.5) |- (1,0.5)  to [C=\C](4,0.5) -| (CM_H1.D);
@@ -79,5 +79,5 @@
 \end{tikzpicture}
 
 \caption{Schematic of ROIC channel template}
-\label{tkz:schematic_ROIC_template}
+\label{tkz:schematic_ROIC_reset}
 \end{figure}
