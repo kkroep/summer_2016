@@ -11,7 +11,7 @@
 \newcommand*{\OUT}{$\color{blue}V_{out}$}
 \newcommand*{\VBO}{\color{blue}\textbf{VBO[8]} $\color{red}1.4\,V$}
 \newcommand*{\gnd}{gnd\\ $\color{red}0\,V$}
-\newcommand*{\C}{$\color{red}450\,fF$}
+\newcommand*{\C}{$\color{blue}C$}
 
 
 
@@ -73,11 +73,11 @@
 \draw (7,1.5)node[dot]{} to (10,1.5) node[anchor=west, align=center]{\OUT};
 %\draw (9,1)node[dot]{} to (10,1) node[anchor=west, align=center]{\VBO};
 
-\draw (-2.5,2.5)node[anchor=east, align=center]{\IN} to [R=$20\,M\Omega$](-1,2.5);
+\draw (-2.5,2.5)node[anchor=east, align=center]{\IN} to [R=$100\,M\Omega$](-1,2.5);
 
 
 \end{tikzpicture}
 
 \caption{Schematic of ROIC channel template}
-\label{tkz:schematic_ROIC_template}
+\label{tkz:integrator_test}
 \end{figure}

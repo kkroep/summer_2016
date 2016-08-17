@@ -3,13 +3,13 @@
 
 \usetikzlibrary{shapes,snakes}
 
-\newcommand*{\Vg}{Vg\\ $\color{red}2.5\,V$}
-\newcommand*{\Rst}{\textbf{Rst[3]}\\ $\color{red}0\,V$} 
+\newcommand*{\Vg}{Vg\\ $\color{red}4.5\,V$}
+\newcommand*{\Rst}{\textbf{Rst[3]}\\ $\color{blue}reset$} 
 \newcommand*{\Res}{Res\\ $\color{red}0.86\,V$}
 \newcommand*{\VDD}{VDD3.3\\ $\color{red}3.3\,V$}
-\newcommand*{\IN}{\color{green}\textbf{IN[i]}}
-\newcommand*{\OUT}{\color{red}\textbf{OUT[i]} $\color{red}1.4\,V$}
-\newcommand*{\VBO}{\color{blue}\textbf{VBO[i]} $\color{red}1.4\,V$}
+\newcommand*{\IN}{$\color{blue}V_{in}$}
+\newcommand*{\OUT}{$\color{blue}V_{out}$}
+\newcommand*{\VBO}{\color{blue}\textbf{VBO[8]} $\color{red}1.4\,V$}
 \newcommand*{\gnd}{gnd\\ $\color{red}0\,V$}
 \newcommand*{\C}{$\color{red}450\,fF$}
 
@@ -49,7 +49,7 @@
 
 
 
-\draw (-1,2.5) node[anchor=east, align=center]{\IN} to (Vg.S);
+\draw (-1,2.5) node[anchor=east, align=center]{} to (Vg.S);
 \draw (Vg.G) |- (0,4.5) node[anchor=south, align=center]{\Vg};
 \draw (Vg.B) |- (1,2.5) node[dot]{} |- (CM_H1.G); %top
 \draw (1,2.5) |- (1,0.5)  to [C=\C](4,0.5) -| (CM_H1.D);
@@ -71,13 +71,13 @@
 \draw (CM_L3.S) |- (CM_L2.S) node[dot]{};
 \draw (CM_L3.G) |- (6,0) node[dot]{};
 \draw (7,1.5)node[dot]{} to (10,1.5) node[anchor=west, align=center]{\OUT};
-\draw (9,1)node[dot]{} to (10,1) node[anchor=west, align=center]{\VBO};
+%\draw (9,1)node[dot]{} to (10,1) node[anchor=west, align=center]{\VBO};
 
-
+\draw (-2.5,2.5)node[anchor=east, align=center]{\IN} to [R=$100\,M\Omega$](-1,2.5);
 
 
 \end{tikzpicture}
 
 \caption{Schematic of ROIC channel template}
-\label{tkz:schematic_ROIC_template}
+\label{tkz:integrator_test}
 \end{figure}
