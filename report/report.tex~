@@ -76,13 +76,49 @@ This section aims to address the performance of the integrator. \Cref{tkz:integr
 One can calculate the expected performance of the integrator using \cref{eq:t_vs_I}. The expected time to discharge the capacitance versus the measured time is plotted in \cref{fig:e_vs_m}. The expected and measured values don't quite match. After playing around with some values I found that assuming a paracitic capacitance of $250\,fF$ gave the best match. The expected performance with added paracitic capacitance versus measured is shown in \cref{fig:e_vs_m_250fF}.
 
 \begin{align}
-	q&=C\cdot V\\
+	\delta q&=C\cdot \delta V\\
 	I&=\frac{V_{in}-V_0}{R}\\
-	t&=\frac{q}{I}\\
-	t&=\frac{CVR}{V_{in}-V_0}\label{eq:t_vs_I}
+	\delta t&=\frac{\delta q}{I}\\
+	\frac{\delta V}{\delta t}&=\frac{I}{C}=\frac{V_{in}-V_0}{RC}\label{eq:t_vs_I}
 \end{align}
 
 
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:slopes_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $100\,M\Omega$}
+	\label{fig:e_vs_m}
+\end{figure}
 \begin{figure}
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
@@ -153,7 +189,7 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    {$C=50\,fF$}    
 	    \label{fig:e_vs_m_50fF_250fF}
 	\end{subfigure}
-	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $100\,M\Omega$}
+	\caption{Expected versus measured charge up times for different input voltages. The expected performance is modified by assuming a $250\,fF$ paracitic capacitance. The input voltage is connected to the input through a resistor of $100\,M\Omega$}
 	\label{fig:e_vs_m_250fF}
 \end{figure}
 
