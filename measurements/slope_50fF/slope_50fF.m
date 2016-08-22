@@ -25,19 +25,35 @@ for j=0:22
 		adres = [file, int2str(j), file2];
 	end	
 	a = csvread(adres);
-
-	smooth=13;
-	b=a(1:end-smooth+1,:);
-	for i=2:smooth
-		b = b+a(i:end-smooth+i,:);
-	end
-	a=b/smooth;
-
+	
 	a(1:21,:)=[];
 	a(end,:)=[];
 	a(:,1) = a(:,1)-a(1,1);
 
-	if j==0
+
+	for i=1:40
+		b = [a(:  ,2); a(end,2); a(end,2); a(end,2); a(end,2);]...
+		  + [a(1  ,2); a(:  ,2); a(end,2); a(end,2); a(end,2);]...
+		  + [a(1  ,2); a(1  ,2); a(:  ,2); a(end,2); a(end,2);]...
+		  + [a(1  ,2); a(1  ,2); a(1  ,2); a(:  ,2); a(end,2);]...
+		  + [a(1  ,2); a(1  ,2); a(1  ,2); a(1  ,2); a(:  ,2);];
+		b(1:2)=[];
+		b(end-1:end)=[];
+		a(:,2)=b./5;
+	end
+
+		if j==0
+		for i=1:4
+			b = [a(:  ,4); a(end,4); a(end,4); a(end,4); a(end,4);]...
+			  + [a(1  ,4); a(:  ,4); a(end,4); a(end,4); a(end,4);]...
+			  + [a(1  ,4); a(1  ,4); a(:  ,4); a(end,4); a(end,4);]...
+			  + [a(1  ,4); a(1  ,4); a(1  ,4); a(:  ,4); a(end,4);]...
+			  + [a(1  ,4); a(1  ,4); a(1  ,4); a(1  ,4); a(:  ,4);];
+			b(1:2)=[];
+			b(end-1:end)=[];
+			a(:,4)=b./5;
+		end
+		
 		plot(a(:,1), a(:,4), 'LineWidth', 4, 'k');
 		for i=1:length(a(:,4))
 			if(a(i,4)>2)
@@ -46,12 +62,13 @@ for j=0:22
 			end
 		end
 	end
-	%plot(a(:,1), a(:,3), 'g', 'LineWidth', 4);
 	plot(a(:,1), a(:,2), 'r', 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
 
 	for i=1:length(a(:,2))
-		if(a(i,2)<0.7)
-			middle(j+1) = a(i,1);
+		if(a(i,2)<0.6)
+			northwest = a(i-35 ,1:2);
+			southeast = a(i+35 ,1:2);
+			middle(j+1) = (northwest(2)-southeast(2))/(southeast(1)-northwest(1));
 			break;
 		end
 	end
@@ -93,10 +110,6 @@ print('-deps', '-color', fullfile(pwd, '../../report/fig/slope_50fF.eps'))
 close;
 fprintf('\n\n');
 
-for i=1:length(middle)
-	fprintf('%d\n', middle(i));
-end
-size(middle)
 %plot(1:length(middle), middle);
 %print('-deps', '-color', fullfile(pwd, 'time_vs_voltage.eps'))
 
@@ -106,16 +119,18 @@ close;
 V_in = 2.5:0.1:20;
 
 R = 100e6;
-V = 1.4;
 C_int = 50e-15;
-C_par = 250e-15;
+C_par = 100e-15;
 C = C_int+C_par;
-V_0 = 2.4;
-t = C.*V.*R./(V_in-V_0);
-I=(V_in-V_0)./R;
+V = 2.5;
+V_0 = 2.5;
+%t = C.*V.*R./(V_in-V_0);
+%I = (V_in-V_0)./R;
+dV_dt = (V_in-V_0)./(R*C);
+
 hold on;
 
-plot(I,t);
+plot(V_in,dV_dt);
 
 V_in = [
 2.6
@@ -143,13 +158,17 @@ V_in = [
 20
 ];
 
-I=(V_in-V_0)./R;
-plot(I, (middle-4.02e-5).*2, 'r');
 
+I = (V_in-V_0)./R;
+
+%plot(I, 1./((middle-4.02e-5).*2), 'r');
+middle = middle./1.2.*V_0; %deze stap is nodig door de current follower
+
+plot(V_in, middle, 'r*');
 hold off;
 
 xlabel('input voltage [V]');
-ylabel('integration time [s]')
+ylabel('dV/dt')
 legend('expected', 'measured', 'location', 'northeastoutside');
 title('expected versus measured times to charge a capacitor of 50 fF');
 print('-deps', '-color', '../../report/fig/vin_vs_time_50fF.eps');

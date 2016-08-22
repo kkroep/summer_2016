@@ -110,10 +110,6 @@ print('-deps', '-color', fullfile(pwd, '../../report/fig/slope_450fF.eps'))
 close;
 fprintf('\n\n');
 
-for i=1:length(middle)
-	fprintf('%d\n', middle(i));
-end
-size(middle)
 %plot(1:length(middle), middle);
 %print('-deps', '-color', fullfile(pwd, 'time_vs_voltage.eps'))
 
@@ -124,7 +120,7 @@ V_in = 2.5:0.1:20;
 
 R = 100e6;
 C_int = 450e-15;
-C_par = 0;%450e-15;
+C_par = 100e-15;
 C = C_int+C_par;
 V = 2.5;
 V_0 = 2.5;
