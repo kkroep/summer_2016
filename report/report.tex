@@ -69,11 +69,11 @@ This test addresses the behavior of the circuit in reset mode. \Cref{tkz:schemat
 
 
 \section{Integrator}
-This section aims to address the performance of the integrator. \Cref{tkz:integrator_test} shows the setup used for this test. Channel 8 was used, so the end of the $100\,M\Omega$ resistor is connected to IN[8], and the probe is connected to OUT[8]. 
+This section aims to address the performance of the integrator. \Cref{tkz:integrator_test} shows the setup used for this test. Channel 8 was used, so the end of the $20\,M\Omega$ resistor is connected to IN[8], and the probe is connected to OUT[8]. 
 
 \input{tkz/ROIC_normal_tkz}
 
-One can calculate the expected performance of the integrator using \cref{eq:t_vs_I}. The expected time to discharge the capacitance versus the measured time is plotted in \cref{fig:e_vs_m}. The expected and measured values don't quite match. After playing around with some values I found that assuming a paracitic capacitance of $250\,fF$ gave the best match. The expected performance with added paracitic capacitance versus measured is shown in \cref{fig:e_vs_m_250fF}.
+One can calculate the expected performance of the integrator using \cref{eq:t_vs_I}. The expected time to discharge the capacitance versus the measured time is plotted in \cref{fig:e_vs_m}. The slope of the $450\,fF$ and $350\,fF$ appear to be reasonably similar to the expected slope, but the $150\,fF$ and especially $50\,fF$ ones are way off. During some testing I found that adding approximately $90\,fF$ to both of those would make the measured and expected values match. It is also interesting to see the current limiting properties of the device in action. All four configurations limit at a $\delta V/\delta t=1.2\cdot10^6$, and with a resistanceof $20\,M\Omega$, this gives a current limitation of $50\,mA$.
 
 \begin{align}
 	\delta q&=C\cdot \delta V\\
@@ -116,7 +116,7 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    {$C=50\,fF$}    
 	    \label{fig:slopes_50fF}
 	\end{subfigure}
-	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $100\,M\Omega$}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
 	\label{fig:slopes}
 \end{figure}
 
@@ -127,7 +127,7 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    \includegraphics[width=\textwidth]{fig/vin_vs_time_sat_450fF.eps}
 	    \caption[Network2]%
 	    {$C=450\,fF$}    
-	    \label{fig:e_vs_m_450fF_250fF}
+	    \label{fig:e_vs_m_450fF}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.475\textwidth}  
@@ -135,7 +135,7 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    \includegraphics[width=\textwidth]{fig/vin_vs_time_sat_350fF.eps}
 	    \caption[]%
 	    {$C=350\,fF$}    
-	    \label{fig:e_vs_m_350fF_250fF}
+	    \label{fig:e_vs_m_350fF}
 	\end{subfigure}
 	\vskip\baselineskip
 	\begin{subfigure}[b]{0.475\textwidth}   
@@ -143,7 +143,7 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    \includegraphics[width=\textwidth]{fig/vin_vs_time_sat_150fF.eps}
 	    \caption[]%
 	    {$C=150\,fF$}    
-	    \label{fig:e_vs_m_150fF_250fF}
+	    \label{fig:e_vs_m_150fF}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[b]{0.475\textwidth}   
@@ -151,10 +151,10 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    \includegraphics[width=\textwidth]{fig/vin_vs_time_sat_50fF.eps}
 	    \caption[]%
 	    {$C=50\,fF$}    
-	    \label{fig:e_vs_m_50fF_250fF}
+	    \label{fig:e_vs_m_50fF}
 	\end{subfigure}
 	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$.}
-	\label{fig:e_vs_m_250fF}
+	\label{fig:e_vs_m}
 \end{figure}
 
 \end{document}
