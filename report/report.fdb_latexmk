@@ -18,10 +18,10 @@
   "tikz.sty" 0 -1 0 ""
   "utf8x.def" 0 -1 0 ""
   (generated)
-  "report.aux"
-  "report.dvi"
   "report.log"
-["pdflatex"] 1471910236 "report.tex" "report.pdf" "report" 1471910237
+  "report.dvi"
+  "report.aux"
+["pdflatex"] 1471910236 "report.tex" "report.pdf" "report" 1471913397
   "/etc/texmf/web2c/texmf.cnf" 1471413988 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -298,12 +298,12 @@
   "fig/vin_vs_time_sat_50fF-eps-converted-to.pdf" 1471908407 8726 2ba2eada1717033df075e3fc4e49a8f9 ""
   "fig/vin_vs_time_sat_50fF.eps" 1471908386 25552 a96c47ce2ed6721c362e65cc08d6997b ""
   "report.aux" 1471910237 3906 acf47792d01da723ddb5cc4419aea3d0 ""
-  "report.tex" 1471910235 5007 658d4c9019d5400289085992980cdb5d ""
+  "report.tex" 1471913387 5007 658d4c9019d5400289085992980cdb5d ""
   "tkz/ROIC_normal_tkz.tex" 1471909214 2985 fdf785be8b32c91694b2d9caca86f69c ""
   "tkz/ROIC_reset-on_tkz.tex" 1471410408 2895 8c75557a4126c2922aee2feebfd984d6 ""
   "tkz/breadboard_tkz.tex" 1471889792 2621 56cab4b55c0bcd34201d5f85b49a4909 ""
   "tkz/schematic_ROIC_tkz.tex" 1471410408 2583 0f393e9003940c82bfa2b403cff06c08 ""
   (generated)
-  "report.log"
-  "report.pdf"
   "report.aux"
+  "report.pdf"
+  "report.log"
