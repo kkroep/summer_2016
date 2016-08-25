@@ -46,7 +46,7 @@ for j=0:7
     for i=1:46
         point = 5000+i*100;
         x=a(point:point+400,1);
-        y1=a(point:point+400,2);
+        y1=a(point:point+400,3);
         % y2=a(point:point+400,3);
         
         p1 = polyfit(x,y1,2);

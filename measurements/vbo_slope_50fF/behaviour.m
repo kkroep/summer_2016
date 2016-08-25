@@ -64,9 +64,9 @@ for j=0:7
 	% end
 	% plot(a(:,1), a(:,2), 'r', 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
 	for i=1:size(a(:,2))
-		if(a(i,2)<0.6)
-			northwest = a(i ,1:2);
-			southeast = a(i+1000 ,1:2);
+		if(a(i,3)>1.6)
+			northwest = a(i ,[1 3]);
+			southeast = a(i+1000 ,[1 3]);
 			middle(j+1) = (northwest(2)-southeast(2))/(southeast(1)-northwest(1));
 			break;
 		end
@@ -89,7 +89,7 @@ dV_dt = (V_in-V_0)./(R*C);
 
 hold on;
 
-plot(V_in,dV_dt);
+% plot(V_in,dV_dt);
 
 V_in = [
 2.8
@@ -113,7 +113,7 @@ hold off;
 
 xlabel('input voltage [V]');
 ylabel('dV/dt')
-legend('expected', 'measured', 'location', 'northeastoutside');
+legend('measured', 'location', 'northeastoutside');
 title('expected versus measured times to charge a capacitor of 50 fF');
 print('-deps', '-color', '../../report/fig/vbo_vin_vs_time_sat_50fF.eps');
 

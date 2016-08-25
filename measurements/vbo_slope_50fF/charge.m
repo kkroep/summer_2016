@@ -29,7 +29,7 @@ V_in = [
 30
 ];
 V_0 = 2.4;
-R = 20;%e6;
+R = 20e6;
 I = (V_in-V_0)/R;
 
 
@@ -103,7 +103,7 @@ end
 
 hold off;
 
-axis([-0.00000 0.000003 -0.1 2.0]);
+axis([-0.00000 0.0000000001 -0.1 3.0]);
 xlabel('charge (Q)');
 ylabel('voltage (V)')
 legend(...

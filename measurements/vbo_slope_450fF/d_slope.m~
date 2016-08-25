@@ -87,7 +87,7 @@ legend(...
 'V_{in}=30.0V',...
 'location', 'northeastoutside');
 title('derivative of voltage on varying input currents, C=450fF');
-print('-deps', '-color', fullfile(pwd, '../../report/fig/d_slope_450fF.eps'))
+print('-deps', '-color', fullfile(pwd, '../../report/fig/vbo_d_slope_450fF.eps'))
 
 
 % close;
