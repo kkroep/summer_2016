@@ -109,7 +109,7 @@ legend(...
 '',...
 'location', 'northeastoutside');
 title('slope on varying input currents, C=450fF');
-print('-deps', '-color', fullfile(pwd, '../../report/fig/slope_450fF.eps'))
+print('-deps', '-color', fullfile(pwd, '../../report/fig/vbo_slope_450fF.eps'))
 
 
 % close;

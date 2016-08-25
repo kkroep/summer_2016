@@ -115,7 +115,7 @@ xlabel('input voltage [V]');
 ylabel('dV/dt')
 legend('expected', 'measured', 'location', 'northeastoutside');
 title('expected versus measured times to charge a capacitor of 350 fF');
-print('-deps', '-color', '../../report/fig/vin_vs_time_sat_350fF.eps');
+print('-deps', '-color', '../../report/fig/vbo_vin_vs_time_sat_350fF.eps');
 
 
 
