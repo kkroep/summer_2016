@@ -74,12 +74,14 @@ This mesaurement addresses the behavior of the circuit in reset mode. \Cref{tkz:
 
 
 
+
+\clearpage
 \subsection{Standard performance}
 This test aims to address the basic relationship between input current and output voltage. \Cref{tkz:integrator_test} shows the setup used for this test. Channel 8 was used, so the end of the $20\,M\Omega$ resistor is connected to IN[8], and probes are connected to OUT[8] and VBO[8]. 
 
 \input{tkz/ROIC_normal_tkz}
 
-\Cref{fig:slopes} shows the time versus voltage plot of both the VBO and OUT for a constant input voltage. The rising and falling slopes are the VBO and OUt respecively. The timescale of this plot does not allow for much inside in VBO, but it does show some interesting results for the behavior of OUT. When the reset switches, the input node immediately loses some charge. Note that the osciloscope matches the rising edge of the rset signal to time is $0\,s$, so this drop is at $0\,s$. It is interesting to observe that the slope is constant for all input voltages. The slopes is much slower than the time necessary for the reset transistor to switch, so the observed slope is not limited by the reset transistor, but by the source follower that tries to keep up. This observed slope is therefore the maximum rate at which the output node can be pulled down in the current set-up.  
+\Cref{fig:slopes} shows the time versus voltage plot of both the VBO and OUT for a constant input voltage. The rising and falling slopes are the VBO and OUt respecively. The timescale of this plot does not allow for much inside in VBO, but it does show some interesting results for the behavior of OUT. When the reset switches, the input node immediately loses some charge. Note that the osciloscope matches the rising edge of the rset signal to time is $0\,s$, so this drop is at $0\,s$. It is interesting to observe that the slope is constant for all input voltages. The slopes is much slower than the time necessary for the reset transistor to switch, so the observed slope is not limited by the reset transistor, but by the source follower that tries to keep up. This observed slope is therefore the maximum rate at which the output node can be pulled down in the current set-up.  lso note that the slope gets steeper when the integrator capacitance decreases. This is to be expected. However also note that the maximum slopes across the different capacitances are all identical.
 
 
 \begin{figure}[h]
@@ -119,6 +121,45 @@ This test aims to address the basic relationship between input current and outpu
 	\label{fig:slopes}
 \end{figure}
 
+\Cref{charges} shows a 
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:charges}
+\end{figure}
 
 \begin{figure}[h]
 	\centering
@@ -158,42 +199,6 @@ This test aims to address the basic relationship between input current and outpu
 \end{figure}
 
 
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[b]{0.475\textwidth}
-	    \centering
-	    \includegraphics[width=\textwidth]{fig/charge_450fF.eps}
-	    \caption[Network2]%
-	    {$C=450\,fF$}    
-	    \label{fig:charges_450fF}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.475\textwidth}  
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/charge_350fF.eps}
-	    \caption[]%
-	    {$C=350\,fF$}    
-	    \label{fig:charges_350fF}
-	\end{subfigure}
-	\vskip\baselineskip
-	\begin{subfigure}[b]{0.475\textwidth}   
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/charge_150fF.eps}
-	    \caption[]%
-	    {$C=150\,fF$}    
-	    \label{fig:charges_150fF}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.475\textwidth}   
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/charge_50fF.eps}
-	    \caption[]%
-	    {$C=50\,fF$}    
-	    \label{fig:charges_50fF}
-	\end{subfigure}
-	\caption{This plot is showing charge versus voltage}
-	\label{fig:charges}
-\end{figure}
 
 \begin{figure}[h]
 	\centering
@@ -273,6 +278,45 @@ In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$
 \end{figure}
 
 
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:bre_charges}
+\end{figure}
+
+
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
@@ -311,42 +355,6 @@ In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$
 \end{figure}
 
 
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[b]{0.475\textwidth}
-	    \centering
-	    \includegraphics[width=\textwidth]{fig/bre_charge_450fF.eps}
-	    \caption[Network2]%
-	    {$C=450\,fF$}    
-	    \label{fig:bre_charges_450fF}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.475\textwidth}  
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/bre_charge_350fF.eps}
-	    \caption[]%
-	    {$C=350\,fF$}    
-	    \label{fig:bre_charges_350fF}
-	\end{subfigure}
-	\vskip\baselineskip
-	\begin{subfigure}[b]{0.475\textwidth}   
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/bre_charge_150fF.eps}
-	    \caption[]%
-	    {$C=150\,fF$}    
-	    \label{fig:bre_charges_150fF}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.475\textwidth}   
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/bre_charge_50fF.eps}
-	    \caption[]%
-	    {$C=50\,fF$}    
-	    \label{fig:bre_charges_50fF}
-	\end{subfigure}
-	\caption{This plot is showing charge versus voltage}
-	\label{fig:bre_charges}
-\end{figure}
 
 \begin{figure}[h]
 	\centering
@@ -428,6 +436,44 @@ In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$
 \end{figure}
 
 
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:vbo_charges}
+\end{figure}
+
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
@@ -466,42 +512,6 @@ In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$
 \end{figure}
 
 
-\begin{figure}[h]
-	\centering
-	\begin{subfigure}[b]{0.475\textwidth}
-	    \centering
-	    \includegraphics[width=\textwidth]{fig/vbo_charge_450fF.eps}
-	    \caption[Network2]%
-	    {$C=450\,fF$}    
-	    \label{fig:vbo_charges_450fF}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.475\textwidth}  
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/vbo_charge_350fF.eps}
-	    \caption[]%
-	    {$C=350\,fF$}    
-	    \label{fig:vbo_charges_350fF}
-	\end{subfigure}
-	\vskip\baselineskip
-	\begin{subfigure}[b]{0.475\textwidth}   
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/vbo_charge_150fF.eps}
-	    \caption[]%
-	    {$C=150\,fF$}    
-	    \label{fig:vbo_charges_150fF}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[b]{0.475\textwidth}   
-	    \centering 
-	    \includegraphics[width=\textwidth]{fig/vbo_charge_50fF.eps}
-	    \caption[]%
-	    {$C=50\,fF$}    
-	    \label{fig:vbo_charges_50fF}
-	\end{subfigure}
-	\caption{This plot is showing charge versus voltage}
-	\label{fig:vbo_charges}
-\end{figure}
 
 \begin{figure}[h]
 	\centering

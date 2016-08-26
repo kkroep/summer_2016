@@ -59,6 +59,7 @@ for j=0:7
         point = 5000+i*100;
         x=a(point:point+400,1);
         y1=a(point:point+400,2);
+		y1 = y1.*2.5./1.4;
         % y2=a(point:point+400,3);
         
         p1 = polyfit(x,y1,2);
@@ -76,7 +77,7 @@ for j=0:7
         % plot(x(1:50:end),y(1:50:end),'r.');
     end
 
-    plot(final_x*I(j+1),abs(final_dy1)/I(j+1), 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
+    plot(final_x*I(j+1),1./(abs(final_dy1)/I(j+1)), 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
     % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
     
     % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
@@ -85,9 +86,9 @@ end
 
 hold off;
 
-axis([0 1.5e-12 0 1.5e12]);
+axis([0 1.5e-12 0 1.5e-12]);
 xlabel('charge (Q)');
-ylabel('dV/dQ')
+ylabel('dQ/dV')
 legend(...
 'V_{in}=2.8 V',...
 'V_{in}=3.1 V',...

@@ -13,6 +13,18 @@ colorspec = {[0.4 0 0.8]; [0.4 0.8 0]; [0.4 0.7 0.7]; ...
   [0 0 0.7]; [0 0.7 0]; [0.7 0 0]};
 
 
+V_in = [
+2.8
+3.1
+3.6
+5
+7
+11
+20
+30
+];
+V_in = V_in - 2.5;
+I = V_in/20e6;
 
 graphics_toolkit gnuplot;
 
@@ -64,7 +76,7 @@ for j=0:7
         % plot(x(1:50:end),y(1:50:end),'r.');
     end
 
-    loglog(final_x,abs(final_dy1), 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
+    plot(final_x*I(j+1),abs(final_dy1)/I(j+1), 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
     % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
     
     % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
@@ -73,9 +85,9 @@ end
 
 hold off;
 
-axis([1e-6 1e-3 1e2 1e5]);
-xlabel('time (s)');
-ylabel('dV/dt')
+axis([0 5e-11 0 6e10]);
+xlabel('charge (Q)');
+ylabel('dV/dQ')
 legend(...
 'V_{in}=2.8 V',...
 'V_{in}=3.1 V',...
@@ -86,78 +98,6 @@ legend(...
 'V_{in}=20.0V',...
 'V_{in}=30.0V',...
 'location', 'northeastoutside');
-title('derivative of voltage on varying input currents, C=150fF');
+title('derivative of VBO on varying input currents, C=150fF');
 print('-deps', '-color', fullfile(pwd, '../../report/fig/vbo_d_slope_150fF.eps'))
 
-
-% close;
-fprintf('\n\n');
-% 
-% %plot(1:length(middle), middle);
-% %print('-deps', '-color', fullfile(pwd, 'time_vs_voltage.eps'))
-% 
-% 
-% %plot expected versus real
-% close;
-% V_in = 2.5:0.1:20;
-% 
-% R = 100e6;
-% C_int = 150e-15;
-% C_par = 100e-15;
-% C = C_int+C_par;
-% V = 2.5;
-% V_0 = 2.5;
-% %t = C.*V.*R./(V_in-V_0);
-% %I = (V_in-V_0)./R;
-% dV_dt = (V_in-V_0)./(R*C);
-% 
-% hold on;
-% 
-% plot(V_in,dV_dt);
-% 
-% V_in = [
-% 2.6
-% 2.7
-% 2.8
-% 2.9
-% 3.0
-% 3.3
-% 3.5
-% 3.8
-% 4.0
-% 4.5
-% 5
-% 5.5
-% 6
-% 7
-% 8
-% 9
-% 10
-% 11
-% 12
-% 14
-% 16
-% 18
-% 20
-% ];
-% 
-% 
-% I = (V_in-V_0)./R;
-% 
-% %plot(I, 1./((middle-4.02e-5).*2), 'r');
-% middle = middle./1.2.*V_0; %deze stap is nodig door de current follower
-% 
-% plot(V_in, middle, 'r*');
-% hold off;
-% 
-% xlabel('input voltage [V]');
-% ylabel('dV/dt')
-% legend('expected', 'measured', 'location', 'northeastoutside');
-% title('expected versus measured times to charge a capacitor of 150 fF');
-% print('-deps', '-color', '../../report/fig/vin_vs_time_150fF.eps');
-% 
-% 
-% 
-% 
-% 
-% 
