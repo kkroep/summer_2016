@@ -73,7 +73,7 @@ end
 
 hold off;
 
-% axis([-0.000001 0.00002 0 3.5]);
+axis([1e-7 1e-4 4e3 4e6]);
 xlabel('time (s)');
 ylabel('dV/dt')
 legend(...
@@ -87,7 +87,7 @@ legend(...
 'V_{in}=30.0V',...
 'location', 'northeastoutside');
 title('derivative of voltage on varying input currents, C=50fF');
-print('-deps', '-color', fullfile(pwd, '../../report/fig/vbo_d_slope_50fF.eps'))
+print('-deps', '-color', fullfile(pwd, '../../report/fig/bre_d_slope_50fF.eps'))
 
 
 % close;

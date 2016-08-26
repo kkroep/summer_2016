@@ -62,28 +62,27 @@
 
 \clearpage
 
-\section{Reset mode}
-This test addresses the behavior of the circuit in reset mode. \Cref{tkz:schematic_ROIC_reset} shows the measured values during reset mode. Note that the input voltage is $2.4\,V$, which is important when calculating the input current. 
+\section{Characterization for high impedance voltage source}
+This section aims to characterize the behavior of the ROIC while exposed to a voltage source with a high resistance in the order of several $M\Omega$. A focus is put onto the performance in reset state, the relationshiop between input current and output voltage, and the current limiting properties of the input transistor.
+
+\subsection{Reset}
+This mesaurement addresses the behavior of the circuit in reset mode. \Cref{tkz:schematic_ROIC_reset} shows the measured values during reset mode. Note that the input voltage is $2.4\,V$, which is important when calculating the input current. 
 
 \input{tkz/ROIC_reset-on_tkz}
 
 
-\section{Integrator}
-This section aims to address the performance of the integrator. \Cref{tkz:integrator_test} shows the setup used for this test. Channel 8 was used, so the end of the $20\,M\Omega$ resistor is connected to IN[8], and the probe is connected to OUT[8]. 
+
+
+
+\subsection{Standard performance}
+This test aims to address the basic relationship between input current and output voltage. \Cref{tkz:integrator_test} shows the setup used for this test. Channel 8 was used, so the end of the $20\,M\Omega$ resistor is connected to IN[8], and probes are connected to OUT[8] and VBO[8]. 
 
 \input{tkz/ROIC_normal_tkz}
 
-One can calculate the expected performance of the integrator using \cref{eq:t_vs_I}. The expected time to discharge the capacitance versus the measured time is plotted in \cref{fig:e_vs_m}. The slope of the $450\,fF$ and $350\,fF$ appear to be reasonably similar to the expected slope, but the $150\,fF$ and especially $50\,fF$ ones are way off. During some testing I found that adding approximately $90\,fF$ to both of those would make the measured and expected values match. It is also interesting to see the current limiting properties of the device in action. All four configurations limit at a $\delta V/\delta t=1.2\cdot10^6$, and with a resistanceof $20\,M\Omega$, this gives a current limitation of $50\,mA$.
-
-\begin{align}
-	\delta q&=C\cdot \delta V\\
-	I&=\frac{V_{in}-V_0}{R}\\
-	\delta t&=\frac{\delta q}{I}\\
-	\frac{\delta V}{\delta t}&=\frac{I}{C}=\frac{V_{in}-V_0}{RC}\label{eq:t_vs_I}
-\end{align}
+\Cref{fig:slopes} shows the time versus voltage plot of both the VBO and OUT for a constant input voltage. The rising and falling slopes are the VBO and OUt respecively. The timescale of this plot does not allow for much inside in VBO, but it does show some interesting results for the behavior of OUT. When the reset switches, the input node immediately loses some charge. Note that the osciloscope matches the rising edge of the rset signal to time is $0\,s$, so this drop is at $0\,s$. It is interesting to observe that the slope is constant for all input voltages. The slopes is much slower than the time necessary for the reset transistor to switch, so the observed slope is not limited by the reset transistor, but by the source follower that tries to keep up. This observed slope is therefore the maximum rate at which the output node can be pulled down in the current set-up.  lso note that the slope gets steeper when the integrator capacitance decreases. This is to be expected. However also note that the maximum slopes across the different capacitances are all identical.
 
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
 	    \centering
@@ -120,8 +119,9 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	\label{fig:slopes}
 \end{figure}
 
+\Cref{fig:d_slopes} shows a  
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
 	    \centering
@@ -154,12 +154,12 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    {$C=50\,fF$}    
 	    \label{fig:d_slopes_50fF}
 	\end{subfigure}
-	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
+	\caption{The plot shows dv/dt against time. The plot is in log scale, which allows for an easy read on the maximum slope and the time needed to discharge the integrator capacitance. }
 	\label{fig:d_slopes}
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
 	    \centering
@@ -192,11 +192,11 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	    {$C=50\,fF$}    
 	    \label{fig:charges_50fF}
 	\end{subfigure}
-	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
+	\caption{This plot is showing charge versus voltage}
 	\label{fig:charges}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}[b]{0.475\textwidth}
 	    \centering
@@ -233,16 +233,322 @@ One can calculate the expected performance of the integrator using \cref{eq:t_vs
 	\label{fig:e_vs_m}
 \end{figure}
 
+\clearpage
+\subsection{large current  focussed}
+In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$ resistor.
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_slopes_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $4\,M\Omega$}
+	\label{fig:bre_slopes}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_d_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_d_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_d_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_d_slopes_50fF}
+	\end{subfigure}
+	\caption{The plot shows dv/dt against time. The plot is in log scale, which allows for an easy read on the maximum slope and the time needed to discharge the integrator capacitance. }
+	\label{fig:bre_d_slopes}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:bre_charges}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_vin_vs_time_sat_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_e_vs_m_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_vin_vs_time_sat_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_e_vs_m_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_vin_vs_time_sat_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_e_vs_m_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_vin_vs_time_sat_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_e_vs_m_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $4\,M\Omega$.}
+	\label{fig:bre_e_vs_m}
+\end{figure}
+
+
+
+\clearpage
+\subsection{vbo  focussed}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_slopes_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
+	\label{fig:vbo_slopes}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_d_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_d_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_d_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_d_slopes_50fF}
+	\end{subfigure}
+	\caption{The plot shows dv/dt against time of the vbo.}
+	\label{fig:vbo_d_slopes}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:vbo_charges}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_vin_vs_time_sat_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_e_vs_m_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_vin_vs_time_sat_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_e_vs_m_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_vin_vs_time_sat_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_e_vs_m_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_vin_vs_time_sat_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_e_vs_m_50fF}
+	\end{subfigure}
+	\caption{charge times of vbo for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$.}
+	\label{fig:vbo_e_vs_m}
+\end{figure}
+
+
+
+
+\clearpage
+
+\
+
 \end{document}
-
-
-
-
-
-
-
-
-
 
 
 

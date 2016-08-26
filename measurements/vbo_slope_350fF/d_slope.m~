@@ -46,7 +46,7 @@ for j=0:7
     for i=1:46
         point = 5000+i*100;
         x=a(point:point+400,1);
-        y1=a(point:point+400,2);
+        y1=a(point:point+400,3);
         % y2=a(point:point+400,3);
         
         p1 = polyfit(x,y1,2);
@@ -73,7 +73,7 @@ end
 
 hold off;
 
-% axis([-0.000001 0.00002 0 3.5]);
+axis([1e-7 1e-4 4e3 4e6]);
 xlabel('time (s)');
 ylabel('dV/dt')
 legend(...

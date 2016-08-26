@@ -73,7 +73,7 @@ end
 
 hold off;
 
-% axis([-0.000001 0.00002 0 3.5]);
+axis([1e-7 1e-5 4e4 4e6]);
 xlabel('time (s)');
 ylabel('dV/dt')
 legend(...
