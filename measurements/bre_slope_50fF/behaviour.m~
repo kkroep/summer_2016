@@ -75,11 +75,11 @@ end
 
 %plot expected versus real
 close;
-V_in = 2.5:0.1:5;
+V_in = 2.5:0.1:10;
 
 R = 3e6;
-C_int = 50e-15;
-C_par = 0;%50e-15;
+C_int = 450e-15;
+C_par = 0;%450e-15;
 C = C_int+C_par;
 V = 2.5;
 V_0 = 2.5;
@@ -109,13 +109,14 @@ I = (V_in-V_0)./R;
 middle = middle./1.2.*V_0; %deze stap is nodig door de current follower
 
 plot(V_in, middle, 'r*');
+csvwrite("middle.csv", middle);
 hold off;
 
 xlabel('input voltage [V]');
 ylabel('dV/dt')
 legend('expected', 'measured', 'location', 'northeastoutside');
-title('expected versus measured times to charge a capacitor of 50 fF');
-print('-deps', '-color', '../../report/fig/bre_vin_vs_time_sat_50fF.eps');
+title('expected versus measured times to charge a capacitor of 450 fF');
+print('-deps', '-color', '../../report/fig/bre_vin_vs_time_sat_450fF.eps');
 
 
 

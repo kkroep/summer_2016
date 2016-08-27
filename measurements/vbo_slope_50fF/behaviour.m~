@@ -107,7 +107,7 @@ I = (V_in-V_0)./R;
 
 %plot(I, 1./((middle-4.02e-5).*2), 'r');
 middle = middle./1.2.*V_0; %deze stap is nodig door de current follower
-
+csvwrite("middle.csv", middle);
 plot(V_in, middle, 'r*');
 hold off;
 

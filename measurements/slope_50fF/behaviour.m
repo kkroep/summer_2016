@@ -109,6 +109,7 @@ I = (V_in-V_0)./R;
 middle = middle./1.2.*V_0; %deze stap is nodig door de current follower
 
 plot(V_in, middle, 'r*');
+csvwrite('middle.csv', middle);
 hold off;
 
 xlabel('input voltage [V]');
