@@ -45,7 +45,7 @@ plot(V_in, middle, '-*', 'Color', colorspec{1});
 hold off;
 
 
-axis([0 30 0 3.5e6]);
+axis([0 30 0 2e6]);
 xlabel('input voltage [V]');
 ylabel('dV/dt')
 legend('450 fF', '350 fF', '150 fF', '50 fF', 'location', 'northeastoutside');

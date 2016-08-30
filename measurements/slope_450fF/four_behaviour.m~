@@ -46,11 +46,11 @@ plot(V_in, middle, '-*', 'Color', colorspec{1});
 hold off;
 
 
-axis([0 30 0 3.5e6]);
+% axis([0 30 0 3.5e6]);
 xlabel('input voltage [V]');
 ylabel('dV/dt')
 legend('450 fF', '350 fF', '150 fF', '50 fF', 'location', 'northeastoutside');
-title('dV/dt against input voltage for all capacitances, R = 4 M\Omega');
+title('dV/dt against input voltage for all capacitances, R = 20 M\Omega');
 print('-deps', '-color', '../../report/fig/vin_vs_time_sat.eps');
 
 

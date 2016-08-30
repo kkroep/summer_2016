@@ -43,13 +43,9 @@ for j=0:7
 	
 	a(1:21,:)=[];
 	a(end,:)=[];
-	% a(:,1) = a(:,1)-a(1,1);
 
 
-		if j==0
 		
-		% plot(a(:,1), a(:,4), 'LineWidth', 4, 'k');
-	end
     gap = 30;
     range = 20;
     startpunt = 5052;
@@ -59,28 +55,18 @@ for j=0:7
         point = 5000+i*100;
         x=a(point:point+400,1);
         y1=a(point:point+400,2);
-		y1 = y1.*2./1.4;
-        % y2=a(point:point+400,3);
+		y1 = y1.*2.5./1.4;
         
         p1 = polyfit(x,y1,2);
-        % p2 = polyfit(x,y2,2);
 
         fit1 = polyval(p1,x);
-        % fit2 = polyval(p2,x);
         
         final_dy1(i) = (fit1(end)-fit1(1))/(x(1)-x(end)); 
-        % final_dy2(i) = (fit2(end)-fit2(1))/(x(1)-x(end)); 
         final_x(i) = x(1);
          
-        % plot(final_x,final_dy2*10, 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
-        % plot(x,yfit, 'Linewidth', 4, 'g');
-        % plot(x(1:50:end),y(1:50:end),'r.');
     end
 
     plot(final_x*I(j+1),1./(abs(final_dy1)/I(j+1)), 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
-    % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
-    
-    % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
 
 end
 

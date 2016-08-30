@@ -59,33 +59,29 @@ for j=0:7
         point = 5000+i*100;
         x=a(point:point+400,1);
         y1=a(point:point+400,3);
-        % y2=a(point:point+400,3);
         
+		% source follower offset
+		y1 = (y1+0.624)./0.827;
+
+
+
         p1 = polyfit(x,y1,2);
-        % p2 = polyfit(x,y2,2);
 
         fit1 = polyval(p1,x);
-        % fit2 = polyval(p2,x);
         
         final_dy1(i) = (fit1(end)-fit1(1))/(x(1)-x(end)); 
-        % final_dy2(i) = (fit2(end)-fit2(1))/(x(1)-x(end)); 
         final_x(i) = x(1);
          
-        % plot(final_x,final_dy2*10, 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
-        % plot(x,yfit, 'Linewidth', 4, 'g');
-        % plot(x(1:50:end),y(1:50:end),'r.');
     end
 
     plot(final_x*I(j+1),abs(final_dy1)/I(j+1), 'Linewidth', 2, 'Color', colorspec{mod(j,12)+1});
-    % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
     
-    % plot(a(startpunt:end-gap-endpunt,1), b(startpunt:end), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
 
 end
 
 hold off;
 
-axis([0 5e-11 0 6e10]);
+axis([0 5e-11 0 7e10]);
 xlabel('charge (Q)');
 ylabel('dV/dQ')
 legend(...
@@ -98,6 +94,6 @@ legend(...
 'V_{in}=20.0V',...
 'V_{in}=30.0V',...
 'location', 'northeastoutside');
-title('derivative of VBO on varying input currents, C=50fF');
-print('-deps', '-color', fullfile(pwd, '../../report/fig/vbo_d_slope_50fF.eps'))
+title('derivative of VBO on varying input currents, C=350fF');
+print('-deps', '-color', fullfile(pwd, '../../report/fig/vbo_d_slope_350fF.eps'))
 

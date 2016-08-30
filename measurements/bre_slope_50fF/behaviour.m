@@ -106,7 +106,13 @@ V_in = [
 I = (V_in-V_0)./R;
 
 %plot(I, 1./((middle-4.02e-5).*2), 'r');
-middle = middle./1.2.*V_0; %deze stap is nodig door de current follower
+
+
+	
+% source follower offset
+middle = (middle+0.624)./0.827;
+
+
 
 plot(V_in, middle, 'r*');
 csvwrite("middle.csv", middle);

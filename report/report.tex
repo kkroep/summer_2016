@@ -71,6 +71,18 @@ This mesaurement addresses the behavior of the circuit in reset mode. \Cref{tkz:
 \input{tkz/ROIC_reset-on_tkz}
 
 
+\subsection{Source follower}
+There are two identical source followers per lane. We can use the VBO source follower to characterise both. This because the input can be directly controlled, and the output directly read. \Cref{fig:source_follower} shows both the measured data and a fitted line with the formula $vbo=0.827v_{in}-0.624$. It will be assumed that this line characterises the performance of both source followers for $1<v_{in}<4$.
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/source_follower.eps}
+	    \caption[]%
+	    {plot of the input voltage against VBO. This plot shows the characteristics of the voltage follower}    
+	    \label{fig:source_follower}	
+\end{figure}
+
+
 
 
 
@@ -217,7 +229,7 @@ This test aims to address the basic relationship between input current and outpu
 
 
 \clearpage
-\subsection{large current  focussed}
+\subsection{large current performance}
 In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$ resistor. The main goal is to observe the ROIC for very large currents.
 
 
@@ -349,7 +361,7 @@ In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$
 \end{figure}
 
 \clearpage
-\subsection{vbo  focussed}
+\subsection{Voltage limiter}
 This section focusses on the output of the source follower that is directly connected to the output of the high voltage transistor connected to the input of the ROIC. The setup is identical to \cref{ssec:standard}, but the time scale is different to oberve the slower behavior of VBO.
 
 \Cref{fig:vbo_slopes} shows the time against voltage plot. This are a couple of important observations that can be made from these plots. First and foremost: the behavior ofthe VBO is almost not affected by the capacitance. The behavior is fairly similar. There is a difference however, in that the VBO starts rising as the OUT reaches zero. This means that the VBO for $450\,fF$ is slightly delayed when compared to $50\,fF$ for example. It is also intersting yo observe that VBO never increases above $2.6\,V$. This behavior is most likely due to the high voltage input transistor doing it's job as a current limiter. Finally one can observe that for very low currents, VBO does not reach $2.6\,V$. The reason for this is that the input reaches the voltage level of the power supply before the current limiter kicks in.
@@ -485,11 +497,21 @@ This section focusses on the output of the source follower that is directly conn
 \end{figure}
 
 
+\Cref{fig:vg_vs_vbo} shows the relationship between $V_g$ and the voltage limit posed by the high voltage transistor at the input. 
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vg_vs_vbo.eps}
+	    \caption[]%
+	    {voltage limit as a function of Vg}    
+	    \label{fig:vg_vs_vbo}	
+\end{figure}
+
+
 
 
 
 \clearpage
-
 
 
 \end{document}

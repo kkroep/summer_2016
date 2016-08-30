@@ -51,43 +51,22 @@ for j=0:7
 		b(end-1:end)=[];
 		a(:,3)=b./5;
 	end
-% 
-		if j==0
-		% for i=1:4
-			% b = [a(:  ,4); a(end,4); a(end,4); a(end,4); a(end,4);]...
-			  % + [a(1  ,4); a(:  ,4); a(end,4); a(end,4); a(end,4);]...
-			  % + [a(1  ,4); a(1  ,4); a(:  ,4); a(end,4); a(end,4);]...
-			  % + [a(1  ,4); a(1  ,4); a(1  ,4); a(:  ,4); a(end,4);]...
-			  % + [a(1  ,4); a(1  ,4); a(1  ,4); a(1  ,4); a(:  ,4);];
-			% b(1:2)=[];
-			% b(end-1:end)=[];
-			% a(:,4)=b./5;
-		% end
+%
 		
-		% plot(a(:,1), a(:,4), 'LineWidth', 4, 'k');
-		% for i=1:length(a(:,4))
-			% if(a(i,4)>2)
-				% fprintf('\noffset=%d\n', a(i,1));
-				% break;
-			% end
-		% end
-	end
+	% source follower offset
+	a(:,2) = (a(:,2)+0.624)./0.827;
+	a(:,3) = (a(:,3)+0.624)./0.827;
+
+	
+
 	plot(a(:,1), a(:,2), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
 	plot(a(:,1), a(:,3), 'LineWidth', 4, 'Color', colorspec{mod(j,12)+1});
 
-	% for i=1:length(a(:,2))
-		% if(a(i,2)<0.6)
-			% northwest = a(i-35 ,1:2);
-			% southeast = a(i+35 ,1:2);
-			% middle(j+1) = (northwest(2)-southeast(2))/(southeast(1)-northwest(1));
-			% break;
-		% end
-	% end
 end
 
 hold off;
 
-axis([-0.000001 0.001 -0.1 3.0]);
+axis([-0.000001 0.001 0.5 4.0]);
 xlabel('time (s)');
 ylabel('voltage (V)')
 legend(...
