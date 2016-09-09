@@ -171,7 +171,7 @@ This test aims to address the basic relationship between input current and outpu
 	\end{subfigure}
 	\caption{This plot is showing charge versus voltage}
 	\label{fig:charges}
-\end{figure}4
+\end{figure}
 
 \Cref{fig:d_slopes} shows the $\delta Q/\delta V$ against charge plots. Note that $\delta Q/\delta V$ is the capacitance. One can observe that while the capacitance is charging, the full value of the capacitancec can be observed, and when the capacitance is comopletely decharged, it behaves as if it is not there. One can use these plots to estimate the integration capacitance. The capitance for \cref{fig:charges_450fF}, \ref{fig:charges_350fF}, \ref{fig:charges_150fF} and \ref{fig:charges_50fF} are approxiately $450\,fF$, $350\,fF$, $220\,fF$ and $180\,fF$ respectively.
 
@@ -514,6 +514,50 @@ This section focusses on the output of the source follower that is directly conn
 \clearpage
 
 
+
+\section{Characterization of GaN sensors}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/pin32_slope_0-25V.eps}
+	    \caption[Network2]%
+	    {I/V characteristics}    
+	    \label{fig:pin32_slope}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/pin32_reset_0-25V.eps}
+	    \caption[]%
+	    {reset value for VBO}    
+	    \label{fig:pin32_reset}
+	\end{subfigure}
+	\caption{The slope and reset values for the VBO of pin32 repeated multiple times to test variance across measurements}
+	\label{fig:pin32}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/pin26-40_slope_0-25V.eps}
+	    \caption[Network2]%
+	    {I/V characteristics}    
+	    \label{fig:pin26-40_slope}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/pin26-40_reset_0-25V.eps}
+	    \caption[]%
+	    {reset value for VBO}    
+	    \label{fig:pin26-40_reset}
+	\end{subfigure}
+	\caption{The slope and reset values for the VBO of pin26-40}
+	\label{fig:pin32}
+\end{figure}
 \end{document}
 
 
