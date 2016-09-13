@@ -41,24 +41,25 @@
   \maketitle
 %   \end{@twocolumnfalse}
 % }]
-
-\section{setup}\label{sec:setup}
-\input{tkz/breadboard_tkz}
-\input{tkz/schematic_ROIC_tkz}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.6\linewidth]{fig/P1010158.JPG}
-	\caption{setup overview}
-	\label{fig:setup_overview}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.6\linewidth]{fig/P1010159.JPG}
-	\caption{close-up}
-	\label{fig:close-up}
-\end{figure}
+i
+\input{setup}
+% \section{setup}\label{sec:setup}
+% \input{tkz/breadboard_tkz}
+% \input{tkz/schematic_ROIC_tkz}
+% 
+% \begin{figure}[h]
+	% \centering
+	% \includegraphics[width=0.6\linewidth]{fig/P1010158.JPG}
+	% \caption{setup overview}
+	% \label{fig:setup_overview}
+% \end{figure}
+% 
+% \begin{figure}[h]
+	% \centering
+	% \includegraphics[width=0.6\linewidth]{fig/P1010159.JPG}
+	% \caption{close-up}
+	% \label{fig:close-up}
+% \end{figure}
 
 \clearpage
 
@@ -558,6 +559,61 @@ This section focusses on the output of the source follower that is directly conn
 	\caption{The slope and reset values for the VBO of pin26-40}
 	\label{fig:pin32}
 \end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/pin26-38_slope_-25-0V.eps}
+	    \caption[Network2]%
+	    {I/V characteristics}    
+	    \label{fig:pin26-40_slope}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/pin26-38_reset_-25-0V.eps}
+	    \caption[]%
+	    {reset value for VBO}    
+	    \label{fig:pin26-40_reset}
+	\end{subfigure}
+	\caption{The slope and reset values for the OUT of pin26-38}
+	\label{fig:pin32}
+\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/pin24_slope_-25-0V.eps}
+	    \caption[Network2]%
+	    {I/V characteristics}    
+	    \label{fig:pin24_slope}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/pin24_reset_-25-0V.eps}
+	    \caption[]%
+	    {reset value for VBO}    
+	    \label{fig:pin24_reset}
+	\end{subfigure}
+	\caption{The slope and reset values for the OUT of pin24}
+	\label{fig:pin32}
+\end{figure}
+
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/pin22-30_slope_-25-0V.eps}
+	    \caption[]%
+	    {voltage limit as a function of Vg}    
+	    \label{fig:vg_vs_vbo}	
+\end{figure}
+
+
 \end{document}
 
 

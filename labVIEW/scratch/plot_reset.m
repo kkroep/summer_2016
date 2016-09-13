@@ -20,9 +20,9 @@ for i=1:size(tmp,1)
 end
 hold off;
 
-legend(legend_names, 'location', 'northeastoutside');
-title('VBO reset voltage for pin 26-38');
+% legend(legend_names, 'location', 'northeastoutside');
+title('VBO reset voltage for pin 22-30');
 xlabel('input voltage [V]');
 ylabel('VBO during reset [V]');
 print('-dpdf', '-color', fullfile(pwd, 'plot_reset.pdf'));
-print('-deps', '-color', fullfile(pwd, '../../report/fig/pin26-38_reset_-25-0V.eps')) 
+print('-deps', '-color', fullfile(pwd, '../../report/fig/pin22-30_reset_-25-0V.eps')) 
