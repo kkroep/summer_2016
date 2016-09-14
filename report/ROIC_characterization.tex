@@ -1,0 +1,454 @@
+\section{Characterization for high impedance voltage source}
+This section aims to characterize the behavior of the ROIC while exposed to a voltage source with a high resistance in the order of several $M\Omega$. A focus is put onto the performance in reset state, the relationshiop between input current and output voltage, and the current limiting properties of the input transistor.
+
+\subsection{Reset}
+This mesaurement addresses the behavior of the circuit in reset mode. \Cref{tkz:schematic_ROIC_reset} shows the measured values during reset mode. Note that the input voltage is $2.4\,V$, which is important when calculating the input current. 
+
+\input{tkz/ROIC_reset-on_tkz}
+
+
+\subsection{Source follower}
+There are two identical source followers per lane. We can use the VBO source follower to characterise both. This because the input can be directly controlled, and the output directly read. \Cref{fig:source_follower} shows both the measured data and a fitted line with the formula $vbo=0.827v_{in}-0.624$. It will be assumed that this line characterises the performance of both source followers for $1<v_{in}<4$.
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/source_follower.eps}
+	    \caption[]%
+	    {plot of the input voltage against VBO. This plot shows the characteristics of the voltage follower}    
+	    \label{fig:source_follower}	
+\end{figure}
+
+
+
+
+
+
+\clearpage
+\subsection{Standard performance}\label{ssec:standard}
+This test aims to address the basic relationship between input current and output voltage. \Cref{tkz:integrator_test} shows the setup used for this test. Channel 8 was used, so the end of the $20\,M\Omega$ resistor is connected to IN[8], and probes are connected to OUT[8] and VBO[8]. 
+
+\input{tkz/ROIC_normal_tkz}
+
+\Cref{fig:slopes} shows the time versus voltage plot of both the VBO and OUT for a constant input voltage. The rising and falling slopes are the VBO and OUt respecively. The timescale of this plot does not allow for much inside in VBO, but it does show some interesting results for the behavior of OUT. When the reset switches, the input node immediately loses some charge. Note that the osciloscope matches the rising edge of the rset signal to time is $0\,s$, so this drop is at $0\,s$. It is interesting to observe that the slope is constant for all input voltages. The slopes is much slower than the time necessary for the reset transistor to switch, so the observed slope is not limited by the reset transistor, but by the source follower that tries to keep up. This observed slope is therefore the maximum rate at which the output node can be pulled down in the current set-up.  lso note that the slope gets steeper when the integrator capacitance decreases. This is to be expected. However also note that the maximum slopes across the different capacitances are all identical.
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:slopes_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
+	\label{fig:slopes}
+\end{figure}
+
+\Cref{fig:charges} shows the same plot as \cref{fig:slopes}, but now the x axis is scaled with input current. This shows for \cref{fig:slopes_450fF} and \ref{fig:slopes_350fF} that the relationship between output voltage and charge is equal across different input voltages. For \cref{fig:slopes_150fF} and \ref{fig:slopes_50fF} however, one can see that the higher voltages lose this property. Another intersting observation is that when one looks closely at the plot, one can observe a small oscillation with a period that is constant with charge. Also the period is constant across different voltages. A hypothesis explaining this behavior has yet to be found.
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:charges}
+\end{figure}
+
+\Cref{fig:d_slopes} shows the $\delta Q/\delta V$ against charge plots. Note that $\delta Q/\delta V$ is the capacitance. One can observe that while the capacitance is charging, the full value of the capacitancec can be observed, and when the capacitance is comopletely decharged, it behaves as if it is not there. One can use these plots to estimate the integration capacitance. The capitance for \cref{fig:charges_450fF}, \ref{fig:charges_350fF}, \ref{fig:charges_150fF} and \ref{fig:charges_50fF} are approxiately $450\,fF$, $350\,fF$, $220\,fF$ and $180\,fF$ respectively.
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/d_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:d_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/d_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:d_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/d_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:d_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/d_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:d_slopes_50fF}
+	\end{subfigure}
+	\caption{The plot shows dv/dt against time. The plot is in log scale, which allows for an easy read on the maximum slope and the time needed to discharge the integrator capacitance. }
+	\label{fig:d_slopes}
+\end{figure}
+
+
+
+\Cref{fig:e_vs_m} shows $\delta V / \delta t$ against input voltage for all capacitances. One can observe that all four have different slopes at first, but there appears to be a trend that they all converge to a value of $\delta V/\delta t \approx 3.2\cdot10^6$.
+
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vin_vs_time_sat.eps}
+	    \caption[]%
+	    {dV/dt against input voltage for all four capacitances. The x indicate the measurements.}    
+	    \label{fig:e_vs_m}	
+\end{figure}
+
+
+
+\clearpage
+\subsection{large current performance}
+In this section the $20\,M\Omega$ input resistor is replaecd with a $4\,M\Omega$ resistor. The main goal is to observe the ROIC for very large currents.
+
+
+\Cref{fig:bre_slopes} shows the same plot as \cref{fig:slopes}, but this time with larger currents. Where a minimum slope could be observed at \cref{fig:slopes}, it is more prevalent here. This also shows more information about the behavior of VBO. For small voltages the VBO does not increase, but as the voltages get larger, one can observe that the voltages of VBO start rising when the OUT is done with decharging. It is also interesting to note that VBO seems to be not affected by the minimum slope at OUT. This gives rise to the hypothesis that the OUT is limited by the source follower. 
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_slopes_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $4\,M\Omega$}
+	\label{fig:bre_slopes}
+\end{figure}
+
+\Cref{fig:bre_charges} shows a similar plot as in \cref{fig:charges} but with higher currents. In \cref{fig:charges} one could observe that all currents fitted to the same line, but deviated at higher currents. This effect is also observed here, but in a stronger form. Which is to be expected.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:bre_charges}
+\end{figure}
+
+\Cref{fig:bre_d_slopes} shows a plot of $\delta V/\delta Q$ against charge. Note that the behavior for the low voltages differ across the different capacitances, but that the high voltages are not affected by a change in capacitance. This observation agrees with the hypothesis that the output is not limited by the input current, but by the speed of the source follower at the output.
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:bre_d_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:bre_d_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:bre_d_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/bre_d_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:bre_d_slopes_50fF}
+	\end{subfigure}
+	\caption{The plot shows dv/dt against time. The plot is in log scale, which allows for an easy read on the maximum slope and the time needed to discharge the integrator capacitance. }
+	\label{fig:bre_d_slopes}
+\end{figure}
+
+\Cref{fig:bre_e_vs_m} shows the same plot as \cref{fig:e_vs_m}, but with higher current. This plot clearly shows that all four capacitance configurations saturate at a $\delta V\delta t \approx 3.1\,V$. This cannot be a limit applied to the input, because the capacitances are different. Therefore the output is limiting this, conform previous observations.
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/bre_vin_vs_time_sat.eps}
+	    \caption[]%
+	    {dV/dt against input voltage for all four capacitances. The x indicate the measurements.}    
+	    \label{fig:bre_e_vs_m}	
+\end{figure}
+
+\clearpage
+\subsection{Voltage limiter}
+This section focusses on the output of the source follower that is directly connected to the output of the high voltage transistor connected to the input of the ROIC. The setup is identical to \cref{ssec:standard}, but the time scale is different to oberve the slower behavior of VBO.
+
+\Cref{fig:vbo_slopes} shows the time against voltage plot. This are a couple of important observations that can be made from these plots. First and foremost: the behavior ofthe VBO is almost not affected by the capacitance. The behavior is fairly similar. There is a difference however, in that the VBO starts rising as the OUT reaches zero. This means that the VBO for $450\,fF$ is slightly delayed when compared to $50\,fF$ for example. It is also intersting yo observe that VBO never increases above $2.6\,V$. This behavior is most likely due to the high voltage input transistor doing it's job as a current limiter. Finally one can observe that for very low currents, VBO does not reach $2.6\,V$. The reason for this is that the input reaches the voltage level of the power supply before the current limiter kicks in.
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_slopes_50fF}
+	\end{subfigure}
+	\caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
+	\label{fig:vbo_slopes}
+\end{figure}
+
+\Cref{fig:vbo_charges} shows the plots of voltage against charge. One can observe that increasing the current causes the behavior to converge to a line with a linear slope that is constant with Q, and a saturation at $2.6\,V$. 
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_charges_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_charges_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_charges_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_charge_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_charges_50fF}
+	\end{subfigure}
+	\caption{This plot is showing charge versus voltage}
+	\label{fig:vbo_charges}
+\end{figure}
+
+\Cref{fig:vbo_d_slopes} shows $\delta V/\delta Q$ for the VBO. The main observation one can make fromthese plots is that the behavior of VBO is almost entirely unaffected by the integration capacitance.
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.475\textwidth}
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_450fF.eps}
+	    \caption[Network2]%
+	    {$C=450\,fF$}    
+	    \label{fig:vbo_d_slopes_450fF}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\textwidth}  
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_350fF.eps}
+	    \caption[]%
+	    {$C=350\,fF$}    
+	    \label{fig:vbo_d_slopes_350fF}
+	\end{subfigure}
+	\vskip\baselineskip
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_150fF.eps}
+	    \caption[]%
+	    {$C=150\,fF$}    
+	    \label{fig:vbo_d_slopes_150fF}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.475\textwidth}   
+	    \centering 
+	    \includegraphics[width=\textwidth]{fig/vbo_d_slope_50fF.eps}
+	    \caption[]%
+	    {$C=50\,fF$}    
+	    \label{fig:vbo_d_slopes_50fF}
+	\end{subfigure}
+	\caption{The plot shows dv/dt against time of the vbo.}
+	\label{fig:vbo_d_slopes}
+\end{figure}
+
+
+\Cref{fig:vbo_e_vs_m} shows the $\delta V/\delta t$ against input voltage for VBO across all capacitances. For large voltages seem to behave in a noemal linear fashon. The startup shows a scene that looks as if the $450\,fF$ and $350\,fF$ setup behave identical, and that the $150\,fF$ and $50\,fF$ setup behave identical. This might be due to the lack of measurement points, but is worth investigating further.
+
+
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vbo_vin_vs_time_sat.eps}
+	    \caption[]%
+	    {dV/dt of VBO against input voltage for all four capacitances. The x indicate the measurements.}    
+	    \label{fig:vbo_e_vs_m}	
+\end{figure}
+
+
+\Cref{fig:vg_vs_vbo} shows the relationship between $V_g$ and the voltage limit posed by the high voltage transistor at the input. 
+
+\begin{figure}[h]
+	    \centering
+	    \includegraphics[width=\textwidth]{fig/vg_vs_vbo.eps}
+	    \caption[]%
+	    {voltage limit as a function of Vg}    
+	    \label{fig:vg_vs_vbo}	
+\end{figure}
+
+
+
+
+
+\clearpage
+
+
+
+

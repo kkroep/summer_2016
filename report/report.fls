@@ -351,6 +351,8 @@ INPUT ./fig/P1010158.JPG
 INPUT fig/P1010159.JPG
 INPUT ./fig/P1010159.JPG
 INPUT ./fig/P1010159.JPG
+INPUT ROIC_characterization.tex
+INPUT ROIC_characterization.tex
 INPUT tkz/ROIC_reset-on_tkz.tex
 INPUT tkz/ROIC_reset-on_tkz.tex
 INPUT fig/source_follower.eps
@@ -733,6 +735,8 @@ INPUT ./fig/vg_vs_vbo.eps
 INPUT ./fig/vg_vs_vbo-eps-converted-to.pdf
 INPUT ./fig/vg_vs_vbo-eps-converted-to.pdf
 INPUT ./fig/vg_vs_vbo-eps-converted-to.pdf
+INPUT GaN_characterization.tex
+INPUT GaN_characterization.tex
 INPUT fig/pin32_slope_0-25V.eps
 INPUT ./fig/pin32_slope_0-25V.eps
 INPUT ./fig/pin32_slope_0-25V.eps
