@@ -22,10 +22,10 @@ end
 hold off;
 
 % legend(legend_names, 'location', 'northeastoutside');
-legend('out', 'out', 'out', 'vbo', 'vbo interval', 'location', 'northeastoutside');
+legend('out', 'out', 'out', 'out', 'out', 'location', 'northeastoutside');
 % axis([-100 0 0 1e-5]);
 title('I/V curve for pin 21');
 xlabel('input voltage [V]');
 ylabel('Current [A]');
 print('-dpdf', '-color', fullfile(pwd, 'plot_slope.pdf'));
-print('-deps', '-color', fullfile(pwd, '../../report/fig/pin26_slope.eps'))
+print('-deps', '-color', fullfile(pwd, '../../report/fig/pin21_slope.eps'))
