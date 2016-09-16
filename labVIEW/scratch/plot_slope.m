@@ -6,6 +6,12 @@ colorspec = {[0.4 0 0.8]; [0.4 0.8 0]; [0.4 0.7 0.7]; ...
    [0.8 0 0.4]; [0 0.8 0.4]; [0.7 0.7 0.4]; ...
    [0 0 0.7]; [0 0.7 0]; [0.7 0 0]};   
 
+   colorspec = {[0.4 0 0.8]; [0.4 0.8 0];...
+   [0 0.4 0.8]; [0.8 0.4 0]; [0.7 0.4 0.7]; ...
+   [0.8 0 0.4]; [0 0.8 0.4]; [0.7 0.7 0.4]; ...
+   [0 0 0.7]; [0 0.7 0]; [0.7 0 0]};   
+
+
 graphics_toolkit gnuplot;
 
 hold on;
@@ -22,10 +28,10 @@ end
 hold off;
 
 % legend(legend_names, 'location', 'northeastoutside');
-legend('out', 'out', 'out', 'out', 'out', 'location', 'northeastoutside');
-% axis([-100 0 0 1e-5]);
-title('I/V curve for pin 21');
+legend('DCR', 'DCR', 'illuminated', 'illuminated', 'out', 'location', 'northeastoutside');
+% axis([-44 0 0 15e-11]);
+title('I/V curve for pin 18');
 xlabel('input voltage [V]');
 ylabel('Current [A]');
 print('-dpdf', '-color', fullfile(pwd, 'plot_slope.pdf'));
-print('-deps', '-color', fullfile(pwd, '../../report/fig/pin21_slope.eps'))
+print('-deps', '-color', fullfile(pwd, '../../report/fig/pin18_slope_UV.eps'))
