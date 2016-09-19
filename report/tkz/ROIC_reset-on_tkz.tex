@@ -10,7 +10,7 @@
 \newcommand*{\OUT}{OUT[i] $\color{red}1.4\,V$}
 \newcommand*{\VBO}{VBO[i] $\color{red}1.4\,V$}
 \newcommand*{\gnd}{gnd\\ $\color{red}0\,V$}
-\newcommand*{\C}{$\color{red}450\,fF$}
+\newcommand*{\C}{$C_{fb}$}
 
 
 
@@ -38,7 +38,7 @@
 
 %\draw (0,0) to (mos1.s);
 \node(Vg)[nfet, rotate=-90] at (0,2.5) {};
-\node[nfet, rotate=-90] (Reset) at (2.5,2) {};
+\node[pfet, rotate=-90] (Reset) at (2.5,2) {};
 \node[pfet] (CM_H1) at (5,3) {};
 \node[nfet] (CM_L1) at (5,-1) {};
 \node[nfet] (CM_H2) at (7,3) {};
@@ -78,5 +78,5 @@
 \end{tikzpicture}
 
 \caption{Schematic of ROIC channel template}
-\label{tkz:schematic_ROIC_reset}
+\label{tkz:ROIC_reset-on}
 \end{figure}

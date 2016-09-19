@@ -59,7 +59,10 @@ The next step is to investigate reverse bias, and to achieve that the ground and
 
 
 \subsection{High voltage range I/V characteristics}
-In order to get a higher voltage range, tghe setup is changed again. The amplifier used for the input voltage caused a lot of noise and did not amplify enough. The new setup uses a manually controlled voltage source as input voltage. The input voltage is also measured by the oscilloscope. labVIEW continuesly takes measurements where it extracts both the current voltage and current. By manually sweeping the input voltage one can accumulate data points to construct the I/V characteristics. The I/V characteristics for pin 21 on the chip are shown in
+In order to get a higher voltage range, tghe setup is changed again. The amplifier used for the input voltage caused a lot of noise and did not amplify enough. The new setup uses a manually controlled voltage source as input voltage. The input voltage is also measured by the oscilloscope. labVIEW continuesly takes measurements where it extracts both the current voltage and current. By manually sweeping the input voltage one can accumulate data points to construct the I/V characteristics. The I/V characteristics for pin 21 on the chip are shown in \cref{fig:pin21_slope}. Note that the pin number indicates the GaN sensor on a chip that is connected. The results in this plot match with the expected behavior of GaN sensors based on previous measurements. There is a small expontial increase in current for low bias voltages. At a high bias voltage thedevice goes into breakdown with a steep exponential increase.
+
+\subsection{High input currents}
+When the bias voltage
 
 
 
@@ -68,6 +71,6 @@ In order to get a higher voltage range, tghe setup is changed again. The amplifi
 	    \includegraphics[width=\textwidth]{fig/pin21_slope.eps}
 	    \caption[]%
 	    {Voltage to current characteristics for several GaN sensors}    
-	    \label{fig:pin22_30_slope}	
+	    \label{fig:pin21_slope}	
 \end{figure}  
 

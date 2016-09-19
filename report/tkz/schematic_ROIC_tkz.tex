@@ -7,25 +7,25 @@
 \tikzstyle{r_text} = [anchor=south east]
 \begin{tikzpicture}[scale=1, every node/.style={scale=1}]
 
-\draw[dashed, color=blue]  (-0.5,5.5) rectangle (0.5,-2);
-\fill[color=blue, opacity=.1]  (-0.5,5.5) rectangle (0.5,-2);
+\draw[dashed, color=gray]  (-0.5,5.5) rectangle (0.5,-2);
+\fill[color=gray, opacity=.1]  (-0.5,5.5) rectangle (0.5,-2);
 \node[align=center, anchor=south] at (0,5.5) {voltage\\limiter};
 
-\draw[dashed, color=green]  (1.25,5.5) rectangle (5.25,-2);
-\fill[opacity=.1, color=green]  (1.25,5.5) rectangle (5.25,-2);
+\draw[dashed, color=gray]  (1.25,5.5) rectangle (5.25,-2);
+\fill[opacity=.1, color=gray]  (1.25,5.5) rectangle (5.25,-2);
 \node[align=center, anchor=south] at (3.25,5.5) {integrator};
 
 
 
-\draw[dashed, color=red]  (5.75,5.5) rectangle (9.25,-2);
-\fill[opacity=.1, color=red] (5.75,5.5) rectangle (9.25,-2);
+\draw[dashed, color=gray]  (5.75,5.5) rectangle (9.25,-2);
+\fill[opacity=.1, color=gray] (5.75,5.5) rectangle (9.25,-2);
 \node[align=center, anchor=south] at (7.5,5.5) {current mirrors};
 
 %\draw (0,0) to node[nfet]{};
 
 %\draw (0,0) to (mos1.s);
 \node(Vg)[nfet, rotate=-90] at (0,2.5) {};
-\node[nfet, rotate=-90] (Reset) at (2.5,2) {};
+\node[pfet, rotate=-90] (Reset) at (2.5,2) {};
 \node[pfet] (CM_H1) at (5,3) {};
 \node[nfet] (CM_L1) at (5,-1) {};
 \node[nfet] (CM_H2) at (7,3) {};
@@ -38,7 +38,7 @@
 \draw (-1,2.5) node[anchor=east]{IN[i]} to (Vg.S);
 \draw (Vg.G) |- (0,4.5) node[anchor=south]{Vg};
 \draw (Vg.B) |- (1,2.5) node[dot]{} |- (CM_H1.G); %top
-\draw (1,2.5) |- (1,0.5)  to [C=$450\,fF$](4,0.5) -| (CM_H1.D);
+\draw (1,2.5) |- (1,0.5)  to [C=$C_{fb}$](4,0.5) -| (CM_H1.D);
 \draw (1.5,0.5) node[dot]{} -| (1.5,2) |- (Reset.B);
 \draw (Reset.G) to (2.5,4.5) node[anchor=south]{Rst[3]};
 \draw (Reset.D) -| (3.5,0.5) node[dot]{};

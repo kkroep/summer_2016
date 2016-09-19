@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz, amsmath, amssymb, bm, color}
+\usepackage{geometry}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes,arrows}
+\usepackage{todonotes}
+\usepackage[american]{circuitikz}
+\usepackage{pgfplots}
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{float}
+\usepackage{cleveref}
+\usepackage{ragged2e} % For text alignment
+
+
+\newenvironment{custom_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+
+%\usepackage{multicol} % Used for the two-column layout of the document
+
+
+%\usepackage{bm}
+
+
+\title{Summer Internship (July-September 2016)\\Characterization and testing of CMOS Readout circuit for GaN photodiodes}
+\author{Kees Kroep\\ Msc Computer Engineering and Micro Electronics (2015-2018)\\TU Delft, The Netherlands\\h.j.c.kroep@student.tudelft.nl }
+
+
+\begin{document}
+
+%  \twocolumn[{%
+% \begin{@twocolumnfalse}
+  \maketitle
+%   \end{@twocolumnfalse}
+% }]
+
+\clearpage
+\tableofcontents
+
+\input{acknowledgements}
+\input{introduction}
+\input{readout_design}
+\input{steady_state_ROIC_characterization}
+\input{dynamic_ROIC_characterization}
+\input{GaN_sensors_with_ROIC}
+\input{conclusions_and_future_work}
+
+
+\appendix
+%\input{setup}
+\input{ROIC_characterization}
+\input{GaN_characterization}
+
+
+
+\end{document}
+
+
+

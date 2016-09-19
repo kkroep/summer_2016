@@ -1,0 +1,28 @@
+\section{Readout design}\label{sec:readout_design}
+The ROIC used in this project is designed and manufactured by Padmanabhan et al. ???. The design features three main components. A voltage limiter, an integrator, and two source followers. A schematic of the circuit is shown in \cref{tkz:schematic_ROIC}.
+\input{tkz/schematic_ROIC_tkz}
+
+
+The voltage limiter limits the maximum voltage in the ROIC to protect both the ROIC and the GaN sensors from too much power dissipation. The integrator translates the accumulative amount of charge that has entered the device into an output voltage. The source followers allow for an external readout without affecting the behavior of the ROIC. \Cref{ssec:voltage_limiter}-\ref{ssec:source_follower} describe the different components in more detail.
+
+
+
+\subsection{Voltage limiter}\label{ssec:voltage_limiter}
+The voltage limiter consists of a single transistor with a gate voltage $V_g$ that can be controlled externally. The limiting effect uses the property of cutoff when $V_{GS}\leq V_t$. This means that $V_S\leq V_G - V_T$. A $V_T\approx0.7$ and a $V_G=4.5\,V$ for example, would yield a maximum $V_S\approx 3.8\,V$. The performance of the voltage limiter in practise will be investigated in ???.
+
+\subsection{Integrator}\label{ssec:integrator}
+The integrator transforms the accumulated amount of charge at the input into a change in output voltage. The change in output voltage can be calculated using \cref{eq:integrator}. A schematic of the circuit is shown in \cref{eq:integrator}
+\begin{equation}
+    \Delta V_{out} = \frac{-1}{C}\int_{0}^{T}I\,dt = \frac{-q}{C} 
+    \label{eq:integrator}
+\end{equation}
+
+\input{tkz/integrator_tkz}
+
+The input of the integrator is connected to the ouput of the voltage limiter. The reset switch is controlled externally and used to reset the integration capacitance $C_{fb}$. Note that the relationship between change in voltage and input current is negative. This means that the output voltage drops with a positive input current. The behavior of the integrator is further investigated in ???
+
+\subsection{Source follower}\label{ssec:source_follower}
+The source followers protect the circuit from external influences. There is one source follower connected to the inoput and one to the output of the integrator to be able to oberserve both the in and output on an unintrusive manner. A schematic overview of a the source followers is shown in \cref{tkz:source_follower}. Note that the relationship between $V_{in}$ and $V_{out}$ is non-linear. Also note that the speed at which the source follower can change slope is limited by the bias current for both the pull up and pull down. It is therefore possible that the input rises or falls at a faster speed than the source follower can keep up with. The behavior of the source followers is further investigated in ???
+
+
+\input{tkz/source_follower_tkz}

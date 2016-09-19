@@ -1,0 +1,12 @@
+\section{Steady state ROIC characterization}\label{sec:steady_state_ROIC_characerization}
+The first part of the characterization process is the behavior in steady state. In particular the period where the reset is on. This state has no time component in it, and therefore can be observed with a relatively simple setup.
+
+\subsection{Setup}\label{ssec:steady_state_setup}
+The first version of the setup consists of a breadboard with the ROIC, several voltage sources, and an oscilloscope. The layout of the breadboard is shown in \cref{tkz:breadboard}. All pins on the ROIC that are non listed are floating.
+
+\input{tkz/breadboard_tkz}
+
+\subsection{Behavior during reset}
+
+Because of the PMOS reset transistor, the circuit is in reset mode when reset=$0\,V$. The results of measuring in this state are shown in \cref{tkz:ROIC_reset-on}. The measured values match with the simulation results performed by Padmanabhan et al. ???. Note the input voltage of $2.4\,V$. This is an important value, for it is used to determine the input current, when a voltage source and resistor are used for input. Also note that the output voltage of VBO is $1.4\,V$, while the input is $2.4\,V$. This already shows that the source followers don't match the input 1:1, and this will be further investigated in ???
+\input{tkz/ROIC_reset-on_tkz}

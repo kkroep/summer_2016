@@ -1,0 +1,35 @@
+\begin{figure}[H]
+\centering
+\tikzstyle{dot} = [draw,shape=circle,fill=black, scale =.4]
+\tikzstyle{l_arrow} = [draw,fill = black, regular polygon,regular polygon sides=3, rotate=-90, anchor=south, scale=.5] 
+\tikzstyle{l_text} = [anchor=south west]
+\tikzstyle{r_arrow} = [draw,fill = black, regular polygon,regular polygon sides=3, rotate=90, anchor=south, scale=.5] 
+\tikzstyle{r_text} = [anchor=south east]
+\begin{tikzpicture}[scale=1.5, every node/.style={scale=1}]
+
+
+\node[pfet, rotate=-90] (CM_L1) at (-4,2) {};
+\node(input) at (-5,0.33) [dot]{};
+\node [ground] at (-5.5,-1) {};
+\node(output) at (-3,0)[dot] {};
+
+
+
+\draw (input) |- (-4.5,1) to [C=$C_{fb}$](-3.5,1) -| (output);
+\draw (-5,1) |- (-4.5,2);
+\draw (-3.5,2) -| (-3,1);
+
+
+\draw (-4,0) node[op amp] (opamp) {};
+\draw (-5.5,-1) to(-5.5,-1) to [I=$I_{in}$](-5.5,0.3) |- (opamp.-) ;
+\draw (-5.5,-1) -| (opamp.+);
+
+\draw (opamp.out) to (-2.5,0) node[anchor=west]{$V_{out}$};
+
+\node at (-4,2.8) {reset};
+
+\draw (-4,2) -- (-4.2,2);
+\end{tikzpicture}
+\caption{schematic of integrator}
+\label{integrator}
+\end{figure}
