@@ -6,6 +6,11 @@ The first version of the setup consists of a breadboard with the ROIC, several v
 
 \input{tkz/breadboard_tkz}
 
+
+\subsection{Correct voltage on HDD\_HV}
+During the first stages of the setup there where problems with the correct settings for the HDD\_HV input, because of a misunderstanding with the manufacturer. The instructions for the ROIC stated that the HDD\_HV should be connected to the input voltage of the GaN sensors, but the correct value for HDD\_HV is actually $3.3\,V$. If the HDD\_HV value is raised to much, the ROIC breaks and is no longer usable.
+
+
 \subsection{Behavior during reset}
 
 Because of the PMOS reset transistor, the circuit is in reset mode when reset=$0\,V$. The results of measuring in this state are shown in \cref{tkz:ROIC_reset-on}. The measured values match with the simulation results performed by Padmanabhan et al. ???. Note the input voltage of $2.4\,V$. This is an important value, for it is used to determine the input current, when a voltage source and resistor are used for input. Also note that the output voltage of VBO is $1.4\,V$, while the input is $2.4\,V$. This already shows that the source followers don't match the input 1:1, and this will be further investigated in ???

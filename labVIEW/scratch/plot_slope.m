@@ -6,10 +6,11 @@ colorspec = {[0.4 0 0.8]; [0.4 0.8 0]; [0.4 0.7 0.7]; ...
    [0.8 0 0.4]; [0 0.8 0.4]; [0.7 0.7 0.4]; ...
    [0 0 0.7]; [0 0.7 0]; [0.7 0 0]};   
 
-   colorspec = {[0.4 0 0.8]; [0.4 0.8 0];...
+colorspec = {[0.4 0 0.8]; [0.4 0.8 0]; ...
    [0 0.4 0.8]; [0.8 0.4 0]; [0.7 0.4 0.7]; ...
    [0.8 0 0.4]; [0 0.8 0.4]; [0.7 0.7 0.4]; ...
    [0 0 0.7]; [0 0.7 0]; [0.7 0 0]};   
+
 
 
 graphics_toolkit gnuplot;
@@ -28,10 +29,11 @@ end
 hold off;
 
 % legend(legend_names, 'location', 'northeastoutside');
-legend('DCR', 'DCR', 'illuminated', 'illuminated', 'out', 'location', 'northeastoutside');
-% axis([-44 0 0 15e-11]);
-title('I/V curve for pin 18');
+%legend('DCR', 'DCR', 'illuminated', 'illuminated', 'out', 'location', 'northeastoutside');
+% legend('OUT', 'VBO', 'location', 'northeastoutside');
+% axis([-97 0 2e-7 4e-7]);
+title('I/V curve for pin 30');
 xlabel('input voltage [V]');
 ylabel('Current [A]');
 print('-dpdf', '-color', fullfile(pwd, 'plot_slope.pdf'));
-print('-deps', '-color', fullfile(pwd, '../../report/fig/pin18_slope_UV.eps'))
+print('-deps', '-color', fullfile(pwd, '../../report/fig/pin30_slope.eps'))

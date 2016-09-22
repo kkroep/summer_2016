@@ -5,7 +5,7 @@
 \usepackage{geometry}
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes,arrows}
-\usepackage{todonotes}
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage[american]{circuitikz}
 \usepackage{pgfplots}
 \usepackage{epstopdf}
@@ -28,7 +28,6 @@
 %\usepackage{multicol} % Used for the two-column layout of the document
 
 
-%\usepackage{bm}
 
 
 \title{Summer Internship (July-September 2016)\\Characterization and testing of CMOS Readout circuit for GaN photodiodes}
@@ -43,22 +42,40 @@
 %   \end{@twocolumnfalse}
 % }]
 
+\listoftodos
 \clearpage
 \tableofcontents
 
+\clearpage
 \input{acknowledgements}
+\clearpage
 \input{introduction}
 \input{readout_design}
 \input{steady_state_ROIC_characterization}
+
+\clearpage
 \input{dynamic_ROIC_characterization}
+\clearpage
 \input{GaN_sensors_with_ROIC}
+\clearpage
 \input{conclusions_and_future_work}
+
+
+\todo[inline]{Gan Sensor werking}
+\todo[inline]{meer measurements}
+\todo[inline]{acknowledgements}
+\todo[inline]{abstract}
+\todo[inline]{dedicated slope jetser uitwerken}
+\todo[inline]{cocnlusie iets meer einde}
+\todo[inline]{fotos setup toevoegen}
+\todo[inline]{UV iets meer uitleg over bron en wavelength}
+\clearpage
 
 
 \appendix
 %\input{setup}
-\input{ROIC_characterization}
-\input{GaN_characterization}
+%\input{ROIC_characterization}
+%\input{GaN_characterization}
 
 
 

@@ -1,1 +1,40 @@
-\section{Conclusions and Future work}\label{sec:conclusions_and_future_work}
+\section{Conclusions}\label{sec:conclusions_and_future_work}
+The main goal of this project was to characterize the behavior of the readout circuit that was designed specifically to work with GaN photodiodes.
+
+A setup was constructed that allowed for a quick and precise way of measuring the ROIC and GaN photodiodes using a digital oscilloscope connected to a computer. Programs where constructed to extract the input current from the measured waveforms.
+
+The behavior of the source followers was characterized, to be able to compensate for it's behavior in later stages. The performance of the integrator was characterized and the effective feedback capacitances where calculated in order to correctly address the relationship between the slope and input current. The performance of the voltage limiter was investigated, and the tunabily of the voltage meter determined. 
+
+A limitation on the ROIC was found where a large input current and voltage result in the destruction of the ROIC, and an analysis was performed to the cause of this.
+
+Various GaN photodiodes where measured and analyzed.
+
+
+
+\section{Recommendations and future work}
+Based on the observations and analysis performed, serveral recommendations can be made for future versions of the ROIC.\\
+\\
+\textbf{Stronger Op amp}\\
+The op amp in the integrator should be able to draw more current. This is necessary to observe the GaN sensors above breakdown. judging by the observations made with the GaN sensors, at least an order of magnitude is needed to observe all the way up to $100\,V$\\
+\\
+\textbf{Seperate channels}\\
+In the current design a lot of elements are shared among different channels. Theproblem with this is that if one of these elements stops working, the entire chip is destroyed. There are a lot of unused pins on the input side of the chip that could be utilized to split up more ofelements on the chip.\\
+\\
+\textbf{Capacitance choices}\\
+The observed capacitance options are $400\,fF$, $350\,fF$, $200\,fF$ and $150\,fF$. It would be preferable to have a larger range of values to choose from, and most importantly, the lowest capacitance should be lower than it currently is. This increases the slope, and therefore allows for faster measurements. The sample speed is currently limited to the range of $1\,kHz$. \\
+\\
+\textbf{Faster source follower pull down}\\
+The fastest observable slope on the output of the integrator is limited by the pull down of the source follower. A stronger pull down would result in a wider range of observable input currents. One way to achieve a better pull down is to use a higher bias voltage. Another possibility is to use two stages of increasing sizes in the source follower.\\
+\\
+\textbf{Dedicated slope detection}\\
+Currently an oscilloscope and computer are used to determine the slope. In order to scale up the technology, a dedicated solution must be found. there are several ways this can be addressed. \textbf{sample and hold + ADC}, or \textbf{multiply reset, comparator + TDC}. ***uitwerken *** \\
+\\
+\textbf{Array}\\
+With a better slope detection method, the next step is to construct an array of ROIC channels and connect them to an array of GaN sensors. Provided that a dedicated slope detection method is found, this addition is not far off, as the current ROIC channel already features eight lanes.\\
+\\
+\textbf{Other future work}\\
+Additional characterization needs to be performed to determine how much power can be dissipated before damaging either the ROIC or the GaN sensors. This information can then be used to dtermine an appropriate frequency for the reset signal, and an appropriate setting for the voltage limiter.
+
+The ROIC is only tested on one GaN sensor design. It should be used to observe different GaN sensor designs as well.
+
+
