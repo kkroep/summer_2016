@@ -7,7 +7,8 @@ The behavior of the source followers was characterized, to be able to compensate
 
 A limitation on the ROIC was found where a large input current and voltage result in the destruction of the ROIC, and an analysis was performed to the cause of this.
 
-Various GaN photodiodes where measured and analyzed.
+Various GaN photodiodes where measured and analyzed. Finally the performance of GaN photodiodes with a UV source was analyzed.
+
 
 
 
@@ -15,22 +16,25 @@ Various GaN photodiodes where measured and analyzed.
 Based on the observations and analysis performed, serveral recommendations can be made for future versions of the ROIC.\\
 \\
 \textbf{Stronger Op amp}\\
-The op amp in the integrator should be able to draw more current. This is necessary to observe the GaN sensors above breakdown. judging by the observations made with the GaN sensors, at least an order of magnitude is needed to observe all the way up to $100\,V$\\
+The op amp in the integrator should be able to draw more current. This is necessary to observe the GaN sensors above breakdown. judging by the observations made with the GaN sensors, at least an order of magnitude is needed to observe all the way up to $100\,V$. Note that the pull down power of the op amp can be increased on the current chip by changing the bias voltage on the pull down network. However, the increased speed will not be enough to address the issue.\\
 \\
 \textbf{Seperate channels}\\
 In the current design a lot of elements are shared among different channels. Theproblem with this is that if one of these elements stops working, the entire chip is destroyed. There are a lot of unused pins on the input side of the chip that could be utilized to split up more ofelements on the chip.\\
 \\
 \textbf{Capacitance choices}\\
-The observed capacitance options are $400\,fF$, $350\,fF$, $200\,fF$ and $150\,fF$. It would be preferable to have a larger range of values to choose from, and most importantly, the lowest capacitance should be lower than it currently is. This increases the slope, and therefore allows for faster measurements. The sample speed is currently limited to the range of $1\,kHz$. \\
+The observed capacitance options are $400\,fF$, $350\,fF$, $200\,fF$ and $150\,fF$. It would be preferable to have a larger range of values to choose from, and most importantly, the lowest capacitance should be lower than it currently is. This increases the slope, and therefore allows for faster measurements and/or lower currents. The sample speed is currently limited to the range of $1\,kHz$. \\
 \\
 \textbf{Faster source follower pull down}\\
-The fastest observable slope on the output of the integrator is limited by the pull down of the source follower. A stronger pull down would result in a wider range of observable input currents. One way to achieve a better pull down is to use a higher bias voltage. Another possibility is to use two stages of increasing sizes in the source follower.\\
+The fastest observable slope on the output of the integrator is limited by the pull down of the source follower. A stronger pull down would result in a wider range of observable input currents. The pull down in the current ROIC can already be increased by changing the bias voaltage on the pull doen network, but this will not be enough of an increase to address the problem entirely.\\
+\\
+\textbf{A circuitboard in a metal case}\\
+In order to improve the SNR, it would be desireable to use a circuitboard housed in a metal case to minimize the length of the wires, and shield the circuit from outside interference.\\
 \\
 \textbf{Dedicated slope detection}\\
-Currently an oscilloscope and computer are used to determine the slope. In order to scale up the technology, a dedicated solution must be found. there are several ways this can be addressed. \textbf{sample and hold + ADC}, or \textbf{multiply reset, comparator + TDC}. ***uitwerken *** \\
+Currently an oscilloscope and computer are used to determine the slope. In order to scale up the technology, a dedicated solution must be found. One solution could be to use a sample and hold connected to an ADC. It is important however, that the signal controlling the sample and hold, is synchronized with the reset signal. \\
 \\
 \textbf{Array}\\
-With a better slope detection method, the next step is to construct an array of ROIC channels and connect them to an array of GaN sensors. Provided that a dedicated slope detection method is found, this addition is not far off, as the current ROIC channel already features eight lanes.\\
+The next step is to construct an array of ROIC channels and connect them to an array of GaN sensors. A solution for this could be to connect a sample and hold to all the outputs on the ROIC, and using a multiplexer with an ADC to read out the values. \\
 \\
 \textbf{Other future work}\\
 Additional characterization needs to be performed to determine how much power can be dissipated before damaging either the ROIC or the GaN sensors. This information can then be used to dtermine an appropriate frequency for the reset signal, and an appropriate setting for the voltage limiter.

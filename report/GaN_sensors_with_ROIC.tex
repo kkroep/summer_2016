@@ -7,6 +7,8 @@ In order to automate the measuring process further, the oscilloscope is connecte
 \subsection{Calculation of current}
 The calculation of the current is done in labVIEW in realtime, and to accommodate for that, the calculation of the slope is different. First a voltage threshold , and a time threshold is set. Then it is calculated when the slope crosses either of those thresholds. That point is used together with the starting point to calculate the slope. Again in order to calculate the input current, the measurement is corrected for source follower, and the slope divided by the capacitance. 
 
+\subsection{External noise}
+One of the problems in the project was the susceptibility of the setup to noise. Throughout the project alterations where made to improve the SNR. The main improvements included rerouting of power cables, unplugging devices from the power grid, changing all long cables for shielded coax cables, and shielding the breadboard with metal plates. The measurements done in this section are therefore a lot less noisy than the measurements used for the characterization of the GaN sensors, and a lot less averaging is required for a stable output. 
 
 \subsection{Automatic bias voltage sweep}\label{ssec:automatic_bias_voltage_sweep}
 Measurements in this section are acquired using the automatic bias voltage sweep. First the performance in forward bias is investigated. The result of these measurements are shown in \cref{fig:pin26-40}. The VBO channel is used for the measurements because of the large currents. There are several oberservations that be made using this plot. First of all, there are several pins that appear to be unaffected by the input voltage. This is not due to the GaN sensors, but because the ROIC channel broke after a certain point. This is most likely because the input was accidently connected to a ground pin, which puts the high voltage directly to the input of the ROIC. A second observation is that the reset value of the VBO cannot be contained for large input voltages. This most likely means that the amount of current that is put into the ROIC is larger than the op amp in the ROIC can keep up with. Using an external current meter, the maximum amount of current the opamp can compete with is approximately $15\,\mu A$. Finally it is interesting to observe that there is a substantial variance across the different devices. In order to test whether this variance is due to noise or due to variance across devices, a second set of measurements are made. This time only a single device is measured. The results are shown in \cref{fig:pin32}. These measurements show that the variance over different measurements is relatively low, which means that the observed variance in \cref{fig:pin26-40} is mostly caused by variance across different devices.
@@ -58,7 +60,7 @@ Measurements in this section are acquired using the automatic bias voltage sweep
 \end{figure}
 
 
-Next, the reverse bias performance. The I/V characteristics for several pins are shown in \cref{fig:pin22_30_slope}. The jumps to negative current between 0 and $2.4\,V$ is due to the ground of the ROIC input being $2.4\,V$. Therefore for lower voltages, the current flows into the opposite direction. The numbers are not representative for the actual current though, because the ROIC and measurement method are not designed for that direction of current. The main observation that can be made is that the voltage range available in the current setup is insufficient to observe the most interesting part of the $I/V$ characteristics.  
+Next up is the reverse bias performance. The I/V characteristics for several pins are shown in \cref{fig:pin22_30_slope}. The jumps to negative current between 0 and $2.4\,V$ is due to the ground of the ROIC input being $2.4\,V$. Therefore for lower voltages, the current flows into the opposite direction. The numbers are not representative for the actual current though, because the ROIC and measurement method are not designed for that direction of current. The main observation that can be made is that the voltage range available in the current setup is insufficient to observe the most interesting part of the $I/V$ characteristics.  
 
 \begin{figure}[h]
 	    \centering
@@ -105,7 +107,7 @@ The $I/V$ characteristics for pin 21 on the chip are shown in \cref{fig:pin21_sl
 	    \label{fig:pin26_slope}	
 \end{figure}  
 
-\Cref{fig:pin18_slope} and \cref{fig:pin18_slope_lin} show plots for a sensor that is illuminated by a UV source. One can see that the dark current has a steeper slope than the UV light. This means that a clear difference is oberservable for low bias voltages, but the UV loses significance when the dark current increases to higher levels.
+\Cref{fig:pin18_slope} and \cref{fig:pin18_slope_lin} show plots for a sensor that is illuminated by a UV source. The wavelength and power of the UV source are unknown, so the measurements can only be used as an indication. One can see that the dark current has a steeper slope than the UV light. This means that a clear difference is oberservable for low bias voltages, but the UV loses significance when the dark current increases to higher levels.
 
 \begin{figure}[h]
 	    \centering
@@ -122,6 +124,19 @@ The $I/V$ characteristics for pin 21 on the chip are shown in \cref{fig:pin21_sl
 	    {Voltage to current characteristics for a single GaN sensor}    
 	    \label{fig:pin18_slope_lin}	
 \end{figure}  
+
+
+\Cref{fig:slope_illuminated} shows a set of waveforms for varying bias voltages, where a UV source is either tunred on or off. The plot illustrates that the difference between dark and UV illuminated is clearly oberservable. Again with the current setup there is no information available on the intensity of the illumination.
+
+\begin{figure}[h]
+	    \centering
+        \includegraphics[width=0.7\textwidth]{fig/slope_illuminated.eps}
+	    \caption[]%
+	    {Waveform plots for UV illuminated and dark environments}    
+	    \label{fig:slope_illuminated}	
+\end{figure} 
+
+
 
 \clearpage
 \subsection{Very high bias voltage}\label{ssec:very_high_bias_voltage}
