@@ -12,7 +12,7 @@ This test aims to address the basic relationship between input current and outpu
             \centering
                \includegraphics[width=\textwidth]{fig/slope_450fF.eps}
                     \caption[Network2]%
-                        {$C=450\,fF$}    
+                        {$C0$}    
                             \label{fig:slopes_450fF}
                         \end{subfigure}
                         \hfill
@@ -20,7 +20,7 @@ This test aims to address the basic relationship between input current and outpu
                                 \centering 
                                     \includegraphics[width=\textwidth]{fig/slope_350fF.eps}
                                     \caption[]
-                                        {$C=350\,fF$}    
+                                        {$C1$}    
                                         \label{fig:slopes_350fF}
                                 \end{subfigure}
                             \vskip\baselineskip
@@ -28,7 +28,7 @@ This test aims to address the basic relationship between input current and outpu
                                 \centering 
                                 \includegraphics[width=\textwidth]{fig/slope_150fF.eps}
                                 \caption[]
-                                    {$C=150\,fF$}    
+                                    {$C2$}    
                                     \label{fig:slopes_150fF}
                             \end{subfigure}
                         \quad
@@ -36,7 +36,7 @@ This test aims to address the basic relationship between input current and outpu
                             \centering 
                             \includegraphics[width=\textwidth]{fig/slope_50fF.eps}
                             \caption[]
-                                {$C=50\,fF$}    
+                                {$C3$}    
                                 \label{fig:slopes_50fF}
                         \end{subfigure}
                     \caption{Expected versus measured charge up times for different input voltages. The input voltage is connected to the input through a resistor of $20\,M\Omega$}
@@ -52,7 +52,7 @@ This test aims to address the basic relationship between input current and outpu
         \centering
         \includegraphics[width=\textwidth]{fig/charge_450fF.eps}
         \caption[Network2]%
-        {$C=450\,fF$}    
+        {$C0$}    
         \label{fig:charges_450fF}
 \end{subfigure}
 \hfill
@@ -60,7 +60,7 @@ This test aims to address the basic relationship between input current and outpu
     \centering 
     \includegraphics[width=\textwidth]{fig/charge_350fF.eps}
     \caption[]
-        {$C=350\,fF$}    
+        {$C1$}    
         \label{fig:charges_350fF}
 \end{subfigure}
 \vskip\baselineskip
@@ -68,7 +68,7 @@ This test aims to address the basic relationship between input current and outpu
     \centering 
     \includegraphics[width=\textwidth]{fig/charge_150fF.eps}
     \caption[]
-        {$C=150\,fF$}    
+        {$C2$}    
         \label{fig:charges_150fF}
 \end{subfigure}
 \quad
@@ -76,14 +76,14 @@ This test aims to address the basic relationship between input current and outpu
     \centering 
     \includegraphics[width=\textwidth]{fig/charge_50fF.eps}
     \caption[]
-        {$C=50\,fF$}    
+        {$C3$}    
         \label{fig:charges_50fF}
 \end{subfigure}
 \caption{This plot is showing charge versus voltage}
 \label{fig:charges}
 \end{figure}
 
-\Cref{fig:d_slopes} shows the $\delta Q/\delta V$ against charge plots. Note that $\delta Q/\delta V$ is the capacitance. One can observe that while the capacitance is charging, the full value of the capacitancec can be observed, and when the capacitance is comopletely decharged, it behaves as if it is not there. One can use these plots to estimate the integration capacitance. The capitance for \cref{fig:charges_450fF}, \ref{fig:charges_350fF}, \ref{fig:charges_150fF} and \ref{fig:charges_50fF} are approxiately $450\,fF$, $350\,fF$, $220\,fF$ and $180\,fF$ respectively.
+\Cref{fig:d_slopes} shows the $\delta Q/\delta V$ against charge plots. Note that $\delta Q/\delta V$ is the capacitance. One can observe that while the capacitance is charging, the full value of the capacitancec can be observed, and when the capacitance is comopletely decharged, it behaves as if it is not there. One can use these plots to estimate the integration capacitance. The capitance for \cref{fig:charges_450fF}, \ref{fig:charges_350fF}, \ref{fig:charges_150fF} and \ref{fig:charges_50fF} are approxiately $400\,fF$, $350\,fF$, $200\,fF$ and $150\,fF$ respectively.
 
 
 \begin{figure}[h]
@@ -92,7 +92,7 @@ This test aims to address the basic relationship between input current and outpu
     \centering
     \includegraphics[width=\textwidth]{fig/d_slope_450fF.eps}
     \caption[Network2]%
-    {$C=450\,fF$}    
+    {$C0$}    
     \label{fig:d_slopes_450fF}
 \end{subfigure}
 \hfill
@@ -100,7 +100,7 @@ This test aims to address the basic relationship between input current and outpu
     \centering 
     \includegraphics[width=\textwidth]{fig/d_slope_350fF.eps}
     \caption[]
-        {$C=350\,fF$}    
+        {$C1$}    
         \label{fig:d_slopes_350fF}
 \end{subfigure}
 \vskip\baselineskip
@@ -108,7 +108,7 @@ This test aims to address the basic relationship between input current and outpu
     \centering 
     \includegraphics[width=\textwidth]{fig/d_slope_150fF.eps}
     \caption[]
-        {$C=150\,fF$}    
+        {$C2$}    
         \label{fig:d_slopes_150fF}
 \end{subfigure}
 \quad
@@ -116,7 +116,7 @@ This test aims to address the basic relationship between input current and outpu
     \centering 
     \includegraphics[width=\textwidth]{fig/d_slope_50fF.eps}
     \caption[]
-        {$C=50\,fF$}    
+        {$C3$}    
         \label{fig:d_slopes_50fF}
 \end{subfigure}
 \caption{The plot shows dv/dt against time. The plot is in log scale, which allows for an easy read on the maximum slope and the time needed to discharge the integrator capacitance. }

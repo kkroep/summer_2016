@@ -48,7 +48,7 @@ hold off;
 axis([0 30 -100000 200]);
 xlabel('input voltage [V]');
 ylabel('dV/dt')
-legend('450 fF', '350 fF', '150 fF', '50 fF', 'location', 'northeastoutside');
+legend('C0', 'C1', 'C2', 'C3', 'location', 'northeastoutside');
 title('dV/dt of VBO against input voltage for all capacitances, R = 20 M\Omega');
 print('-deps', '-color', '../../report/fig/vbo_vin_vs_time_sat.eps');
 

@@ -78,7 +78,7 @@ close;
 V_in = 2.5:0.1:30;
 
 R = 20e6;
-C_int = 50e-15;
+C_int = 150e-15;
 C_par = 0;%50e-15;
 C = C_int+C_par;
 V = 2.5;

@@ -49,7 +49,7 @@ hold off;
 axis([0 30 0 2e6]);
 xlabel('input voltage [V]');
 ylabel('dV/dt')
-legend('450 fF', '350 fF', '150 fF', '50 fF', 'location', 'northeastoutside');
+legend('C0', 'C1', 'C2', 'C3', 'location', 'northeastoutside');
 title('dV/dt against input voltage for all capacitances, R = 20 M\Omega');
 print('-deps', '-color', '../../report/fig/vin_vs_time_sat.eps');
 
