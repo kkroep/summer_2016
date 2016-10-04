@@ -2,6 +2,7 @@
 The ROIC used in this project is designed and manufactured by Padmanabhan et al. \cite{preethi}. The design features three main components. A voltage limiter, an integrator, and two source followers. A schematic of the circuit is shown in \cref{tkz:schematic_ROIC}.
 \input{tkz/schematic_ROIC_tkz}
 
+There are two important nodes that will be referred to throughout this documents. These nodes are the in and output of the integrator. They will be referred to as $V_1$ and $V_2$ for the in and output of the integrator respectively. This is also shown in \cref{tkz:schematic_ROIC}.
 
 The voltage limiter limits the maximum voltage in the ROIC to protect both the ROIC and the GaN sensors from too much power dissipation. The integrator translates the accumulative amount of charge that has entered the device into an output voltage. The source followers allow for an external readout without affecting the behavior of the ROIC. \Cref{ssec:voltage_limiter}-\ref{ssec:source_follower} describe the different components in more detail.
 
@@ -22,7 +23,7 @@ The integrator transforms the accumulated amount of charge at the input into a c
 The input of the integrator is connected to the ouput of the voltage limiter. The reset switch is controlled externally and used to reset the integration capacitance $C_{fb}$. Note that the relationship between change in voltage and input current is negative. This means that the output voltage drops with a positive input current. The behavior of the integrator is further investigated in \cref{ssec:dynamic_integrator}.
 
 \subsection{Source follower}\label{ssec:source_follower}
-The source followers protect the circuit from external influences. There is one source follower connected to the inoput and one to the output of the integrator to be able to oberserve both the in and output on an unintrusive manner. A schematic overview of a the source followers is shown in \cref{tkz:source_follower}. Note that the relationship between $V_{in}$ and $V_{out}$ is non-linear. Also note that the speed at which the source follower can change slope is limited by the bias current for both the pull up and pull down. It is therefore possible that the input rises or falls at a faster speed than the source follower can keep up with. The behavior of the source followers is further investigated in \cref{ssec:dynamic_source_followers}. 
+The source followers protect the circuit from external influences. There is one source follower connected to $V_1$ and  the other to $V_2$ to be able to oberserve both in an unintrusive manner. A schematic overview of a the source followers is shown in \cref{tkz:source_follower}. Note that the relationship between $V_{in}$ and $V_{out}$ is non-linear. Also note that the speed at which the source follower can change slope is limited by the bias current for both the pull up and pull down. It is therefore possible that the input rises or falls at a faster speed than the source follower can keep up with. The behavior of the source followers is further investigated in \cref{ssec:dynamic_source_followers}. 
 
 
 \input{tkz/source_follower_tkz}

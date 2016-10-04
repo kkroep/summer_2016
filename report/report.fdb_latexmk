@@ -18,10 +18,10 @@
   "tikz.sty" 0 -1 0 ""
   "utf8x.def" 0 -1 0 ""
   (generated)
-  "report.log"
   "report.dvi"
+  "report.log"
   "report.aux"
-["pdflatex"] 1474415420 "report.tex" "report.pdf" "report" 1474415422
+["pdflatex"] 1474415420 "report.tex" "report.pdf" "report" 1475498009
   "/etc/texmf/web2c/texmf.cnf" 1471413988 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty" 1303254447 7140 ece2cc23d9f20e1f53975ac167f42d3e ""
@@ -188,6 +188,6 @@
   (generated)
   "report.aux"
   "report.log"
-  "quit.pdf"
-  "report.pdf"
   "test.pdf"
+  "report.pdf"
+  "quit.pdf"

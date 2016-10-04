@@ -56,9 +56,9 @@ plot(x, y);
 
 
 hold off;
-xlabel('input voltage [V]');
+xlabel('V_1 [V]');
 ylabel('VBO [V]')
-legend('measured', 'vbo=0.827v_{in}-0.624', 'location', 'northeastoutside');
+legend('measured', 'v_{out}=0.827v_{in}-0.624', 'location', 'northeastoutside');
 title('characteristics of source follower');
 print('-deps', '-color', '../report/fig/source_follower.eps');
 

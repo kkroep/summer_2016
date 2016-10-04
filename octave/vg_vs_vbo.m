@@ -40,9 +40,9 @@ hold on;
 
 hold off;
 xlabel('V_g [V]');
-ylabel('VBOi limit [V]')
+ylabel('Voltage limiter threshold [V]')
 legend('measured', 'location', 'northeastoutside');
-title('effect of Vg on the voltage limiter');
+title('effect of Vg on the cut-off point in the voltage limiter');
 print('-deps', '-color', '../report/fig/vg_vs_vbo.eps');
 
 
