@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex final"] 1475505191 "final.aux" "final.bbl" "final" 1475505193
+["bibtex final"] 1475505191 "final.aux" "final.bbl" "final" 1475818748
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "final.aux" 1475505193 20480 6339d74604aaaa581893571d3d28c043 ""
+  "final.aux" 1475818748 20480 6339d74604aaaa581893571d3d28c043 ""
   "final.bcf" 0 -1 0 ""
   "lib.bib" 1474572830 2604 88369eb9d5006198da8ff68d2686a815 ""
   (generated)
   "final.blg"
   "final.bbl"
-["pdflatex"] 1475505191 "final.tex" "final.pdf" "final" 1475505193
+["pdflatex"] 1475818745 "final.tex" "final.pdf" "final" 1475818748
   "/etc/texmf/web2c/texmf.cnf" 1471413988 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -378,11 +378,10 @@
   "fig/vg_vs_vbo.eps" 1475496284 23765 b3e581b735e4c61df3029c64d8c58a73 ""
   "fig/vin_vs_time_sat-eps-converted-to.pdf" 1474589845 9152 7f95ebba53e39a3a9fabec6a94ededca ""
   "fig/vin_vs_time_sat.eps" 1474589821 25054 150d5386489fa9695e1fd9dac799ae0a ""
-  "final.aux" 1475505193 20480 6339d74604aaaa581893571d3d28c043 ""
+  "final.aux" 1475818748 20480 6339d74604aaaa581893571d3d28c043 ""
   "final.bbl" 1475505191 1446 d15a0009a8431346a2ecfeec91e8da55 "bibtex final"
-  "final.tdo" 1475505189 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "final.tex" 1475498037 1547 2c3e53094aa67965db6d9bc78fb0c1d4 ""
-  "final.toc" 1475505193 1998 5e6e31652348138b7677bed4bdc1aa8e ""
+  "final.tex" 1475818743 1556 af255bef5d1b6eeea53af2826410c0b2 ""
+  "final.toc" 1475818748 1998 5e6e31652348138b7677bed4bdc1aa8e ""
   "high_current_behavior.tex" 1474913543 5566 1ee7660483e6017da389e38d9f71748d ""
   "introduction.tex" 1475505163 3164 229c7d548ca5c114529e9cf5a387402a ""
   "readout_design.tex" 1475494453 3234 84c57600bbd11ac4901b43b313273cec ""
@@ -395,8 +394,8 @@
   "tkz/schematic_ROIC_tkz.tex" 1475493837 2744 6574133f90d5695dfbf3c9e639143362 ""
   "tkz/source_follower_tkz.tex" 1474320184 1285 52225a8661e0ada1fb5eb9aa9d22f487 ""
   (generated)
-  "final.aux"
   "final.pdf"
+  "final.toc"
   "final.log"
   "final.tdo"
-  "final.toc"
+  "final.aux"
