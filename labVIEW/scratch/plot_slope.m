@@ -36,4 +36,4 @@ title('I/V curve for pin 30');
 xlabel('input voltage [V]');
 ylabel('Current [A]');
 print('-dpdf', '-color', fullfile(pwd, 'plot_slope.pdf'));
-print('-deps', '-color', fullfile(pwd, '../../report/fig/pin30_slope.eps'))
+%print('-deps', '-color', fullfile(pwd, '../../report/fig/pin30_slope.eps'))
